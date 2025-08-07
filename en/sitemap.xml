@@ -28,71 +28,6 @@
                 href="https://cronrpc.github.io/en/posts/"
                 />
   </url><url>
-    <loc>https://cronrpc.github.io/en/posts/2d-fourier-transform/</loc>
-    <lastmod>2025-08-01T20:49:34+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://cronrpc.github.io/zh/posts/2d-fourier-transform/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cronrpc.github.io/en/posts/2d-fourier-transform/"
-                />
-  </url><url>
-    <loc>https://cronrpc.github.io/en/categories/</loc>
-    <lastmod>2025-08-01T20:49:34+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://cronrpc.github.io/zh/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cronrpc.github.io/en/categories/"
-                />
-  </url><url>
-    <loc>https://cronrpc.github.io/en/categories/default/</loc>
-    <lastmod>2025-08-01T20:49:34+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://cronrpc.github.io/zh/categories/default/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cronrpc.github.io/en/categories/default/"
-                />
-  </url><url>
-    <loc>https://cronrpc.github.io/en/tags/default/</loc>
-    <lastmod>2025-08-01T20:49:34+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://cronrpc.github.io/zh/tags/default/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cronrpc.github.io/en/tags/default/"
-                />
-  </url><url>
-    <loc>https://cronrpc.github.io/en/tags/</loc>
-    <lastmod>2025-08-01T20:49:34+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://cronrpc.github.io/zh/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cronrpc.github.io/en/tags/"
-                />
-  </url><url>
     <loc>https://cronrpc.github.io/en/archives/</loc>
     <xhtml:link
                 rel="alternate"
@@ -103,6 +38,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://cronrpc.github.io/en/archives/"
+                />
+  </url><url>
+    <loc>https://cronrpc.github.io/en/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/categories/"
                 />
   </url><url>
     <loc>https://cronrpc.github.io/en/search/</loc>
@@ -127,6 +74,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://cronrpc.github.io/en/series/"
+                />
+  </url><url>
+    <loc>https://cronrpc.github.io/en/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/tags/"
                 />
   </url>
 </urlset>
