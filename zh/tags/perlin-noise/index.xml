@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>cronrpc</title>
-    <link>https://cronrpc.github.io/zh/</link>
-    <description>Recent content on cronrpc</description>
+    <title>Perlin Noise on cronrpc</title>
+    <link>https://cronrpc.github.io/zh/tags/perlin-noise/</link>
+    <description>Recent content in Perlin Noise on cronrpc</description>
     <image>
       <title>cronrpc</title>
       <url>https://cronrpc.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
@@ -12,7 +12,7 @@
     <generator>Hugo -- 0.147.2</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 06 Aug 2025 21:00:07 +0800</lastBuildDate>
-    <atom:link href="https://cronrpc.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://cronrpc.github.io/zh/tags/perlin-noise/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Perlin Noise Generator</title>
       <link>https://cronrpc.github.io/zh/posts/perlin-noise-generator/</link>
@@ -21,24 +21,6 @@
       <description>&lt;h2 id=&#34;随机噪声&#34;&gt;随机噪声&lt;/h2&gt;
 &lt;h2 id=&#34;perlin-noise&#34;&gt;Perlin Noise&lt;/h2&gt;
 &lt;p&gt;简单来说，**Perlin Noise（柏林噪声）**是一种用来生成自然、平滑随机变化的算法，广泛应用于计算机图形学里，用来模拟自然界中的纹理和形态，比如云彩、火焰、地形、木纹、水面波纹等等。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>2D Fourier Transform</title>
-      <link>https://cronrpc.github.io/zh/posts/2d-fourier-transform/</link>
-      <pubDate>Fri, 01 Aug 2025 20:49:34 +0800</pubDate>
-      <guid>https://cronrpc.github.io/zh/posts/2d-fourier-transform/</guid>
-      <description>&lt;p&gt;本文仅聚焦于如下几个问题：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;从三角级数展开，过渡到欧拉形式的傅里叶变换&lt;/li&gt;
-&lt;li&gt;什么是离散傅里叶变换&lt;/li&gt;
-&lt;li&gt;什么是2D傅里叶变换&lt;/li&gt;
-&lt;li&gt;从2D傅里叶变换，解释到2D离散傅里叶变换&lt;/li&gt;
-&lt;li&gt;如何对图像进行2D傅里叶变换&lt;/li&gt;
-&lt;li&gt;2D傅里叶变换的周期性问题&lt;/li&gt;
-&lt;li&gt;从2D傅里叶变换的周期性理解傅里叶2D频谱图的中心化&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;傅里叶级数&#34;&gt;傅里叶级数&lt;/h2&gt;
-&lt;p&gt;傅里叶级数是一种数学工具，它表示一个周期函数为一组正弦和余弦函数的无穷和。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

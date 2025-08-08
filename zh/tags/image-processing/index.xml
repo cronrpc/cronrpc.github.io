@@ -11,8 +11,17 @@
     </image>
     <generator>Hugo -- 0.147.2</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 01 Aug 2025 20:49:34 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 06 Aug 2025 21:00:07 +0800</lastBuildDate>
     <atom:link href="https://cronrpc.github.io/zh/tags/image-processing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Perlin Noise Generator</title>
+      <link>https://cronrpc.github.io/zh/posts/perlin-noise-generator/</link>
+      <pubDate>Wed, 06 Aug 2025 21:00:07 +0800</pubDate>
+      <guid>https://cronrpc.github.io/zh/posts/perlin-noise-generator/</guid>
+      <description>&lt;h2 id=&#34;随机噪声&#34;&gt;随机噪声&lt;/h2&gt;
+&lt;h2 id=&#34;perlin-noise&#34;&gt;Perlin Noise&lt;/h2&gt;
+&lt;p&gt;简单来说，**Perlin Noise（柏林噪声）**是一种用来生成自然、平滑随机变化的算法，广泛应用于计算机图形学里，用来模拟自然界中的纹理和形态，比如云彩、火焰、地形、木纹、水面波纹等等。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>2D Fourier Transform</title>
       <link>https://cronrpc.github.io/zh/posts/2d-fourier-transform/</link>
