@@ -2,6 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://cronrpc.github.io/zh/categories/</loc>
+    <lastmod>2025-08-13T20:25:38+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/categories/"
+                />
+  </url><url>
     <loc>https://cronrpc.github.io/zh/</loc>
     <lastmod>2025-08-13T20:25:38+08:00</lastmod>
     <xhtml:link
@@ -13,6 +26,32 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://cronrpc.github.io/zh/"
+                />
+  </url><url>
+    <loc>https://cronrpc.github.io/zh/tags/image-processing/</loc>
+    <lastmod>2025-08-13T20:25:38+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/tags/image-processing/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/tags/image-processing/"
+                />
+  </url><url>
+    <loc>https://cronrpc.github.io/zh/categories/math/</loc>
+    <lastmod>2025-08-13T20:25:38+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/categories/math/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/categories/math/"
                 />
   </url><url>
     <loc>https://cronrpc.github.io/zh/posts/</loc>
@@ -28,44 +67,24 @@
                 href="https://cronrpc.github.io/zh/posts/"
                 />
   </url><url>
-    <loc>https://cronrpc.github.io/zh/categories/</loc>
-    <lastmod>2025-08-06T21:00:07+08:00</lastmod>
+    <loc>https://cronrpc.github.io/zh/tags/sdf/</loc>
+    <lastmod>2025-08-13T20:25:38+08:00</lastmod>
+  </url><url>
+    <loc>https://cronrpc.github.io/zh/tags/</loc>
+    <lastmod>2025-08-13T20:25:38+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://cronrpc.github.io/en/categories/"
+                href="https://cronrpc.github.io/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://cronrpc.github.io/zh/categories/"
+                href="https://cronrpc.github.io/zh/tags/"
                 />
   </url><url>
-    <loc>https://cronrpc.github.io/zh/tags/image-processing/</loc>
-    <lastmod>2025-08-06T21:00:07+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cronrpc.github.io/en/tags/image-processing/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://cronrpc.github.io/zh/tags/image-processing/"
-                />
-  </url><url>
-    <loc>https://cronrpc.github.io/zh/categories/math/</loc>
-    <lastmod>2025-08-06T21:00:07+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cronrpc.github.io/en/categories/math/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://cronrpc.github.io/zh/categories/math/"
-                />
+    <loc>https://cronrpc.github.io/zh/posts/signed-distance-field/</loc>
+    <lastmod>2025-08-13T20:25:38+08:00</lastmod>
   </url><url>
     <loc>https://cronrpc.github.io/zh/tags/math/</loc>
     <lastmod>2025-08-06T21:00:07+08:00</lastmod>
@@ -104,19 +123,6 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://cronrpc.github.io/zh/posts/perlin-noise-generator/"
-                />
-  </url><url>
-    <loc>https://cronrpc.github.io/zh/tags/</loc>
-    <lastmod>2025-08-06T21:00:07+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cronrpc.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://cronrpc.github.io/zh/tags/"
                 />
   </url><url>
     <loc>https://cronrpc.github.io/zh/posts/2d-fourier-transform/</loc>
