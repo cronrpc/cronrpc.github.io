@@ -11,13 +11,20 @@
     </image>
     <generator>Hugo -- 0.147.2</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 06 Aug 2025 21:00:07 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 18 Aug 2025 20:50:23 +0800</lastBuildDate>
     <atom:link href="https://cronrpc.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Image Processing</title>
       <link>https://cronrpc.github.io/en/tags/image-processing/</link>
-      <pubDate>Wed, 06 Aug 2025 21:00:07 +0800</pubDate>
+      <pubDate>Mon, 18 Aug 2025 20:50:23 +0800</pubDate>
       <guid>https://cronrpc.github.io/en/tags/image-processing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Worley Noise</title>
+      <link>https://cronrpc.github.io/en/tags/worley-noise/</link>
+      <pubDate>Mon, 18 Aug 2025 20:50:23 +0800</pubDate>
+      <guid>https://cronrpc.github.io/en/tags/worley-noise/</guid>
       <description></description>
     </item>
     <item>

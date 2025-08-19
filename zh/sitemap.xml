@@ -28,11 +28,31 @@
                 href="https://cronrpc.github.io/zh/"
                 />
   </url><url>
-    <loc>https://cronrpc.github.io/zh/categories/default/</loc>
+    <loc>https://cronrpc.github.io/zh/tags/image-processing/</loc>
     <lastmod>2025-08-18T20:50:23+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/tags/image-processing/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/tags/image-processing/"
+                />
   </url><url>
-    <loc>https://cronrpc.github.io/zh/tags/default/</loc>
+    <loc>https://cronrpc.github.io/zh/categories/math/</loc>
     <lastmod>2025-08-18T20:50:23+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/categories/math/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/categories/math/"
+                />
   </url><url>
     <loc>https://cronrpc.github.io/zh/posts/</loc>
     <lastmod>2025-08-18T20:50:23+08:00</lastmod>
@@ -60,33 +80,30 @@
                 href="https://cronrpc.github.io/zh/tags/"
                 />
   </url><url>
+    <loc>https://cronrpc.github.io/zh/tags/worley-noise/</loc>
+    <lastmod>2025-08-18T20:50:23+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/tags/worley-noise/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/tags/worley-noise/"
+                />
+  </url><url>
     <loc>https://cronrpc.github.io/zh/posts/worley-noise-generator/</loc>
     <lastmod>2025-08-18T20:50:23+08:00</lastmod>
-  </url><url>
-    <loc>https://cronrpc.github.io/zh/tags/image-processing/</loc>
-    <lastmod>2025-08-13T20:25:38+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://cronrpc.github.io/en/tags/image-processing/"
+                href="https://cronrpc.github.io/en/posts/worley-noise-generator/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://cronrpc.github.io/zh/tags/image-processing/"
-                />
-  </url><url>
-    <loc>https://cronrpc.github.io/zh/categories/math/</loc>
-    <lastmod>2025-08-13T20:25:38+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cronrpc.github.io/en/categories/math/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://cronrpc.github.io/zh/categories/math/"
+                href="https://cronrpc.github.io/zh/posts/worley-noise-generator/"
                 />
   </url><url>
     <loc>https://cronrpc.github.io/zh/tags/sdf/</loc>
