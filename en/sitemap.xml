@@ -106,6 +106,32 @@
                 href="https://cronrpc.github.io/en/posts/worley-noise-generator/"
                 />
   </url><url>
+    <loc>https://cronrpc.github.io/en/tags/sdf/</loc>
+    <lastmod>2025-08-13T20:25:38+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/tags/sdf/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/tags/sdf/"
+                />
+  </url><url>
+    <loc>https://cronrpc.github.io/en/posts/signed-distance-field/</loc>
+    <lastmod>2025-08-13T20:25:38+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/posts/signed-distance-field/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/posts/signed-distance-field/"
+                />
+  </url><url>
     <loc>https://cronrpc.github.io/en/tags/math/</loc>
     <lastmod>2025-08-06T21:00:07+08:00</lastmod>
     <xhtml:link
