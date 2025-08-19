@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Default on cronrpc 中文</title>
+    <link>https://cronrpc.github.io/zh/tags/default/</link>
+    <description>Recent content in Default on cronrpc 中文</description>
+    <image>
+      <title>cronrpc 中文</title>
+      <url>https://cronrpc.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://cronrpc.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.2</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 18 Aug 2025 20:50:23 +0800</lastBuildDate>
+    <atom:link href="https://cronrpc.github.io/zh/tags/default/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Worley Noise / Voronoi Noise Generator</title>
+      <link>https://cronrpc.github.io/zh/posts/worley-noise-generator/</link>
+      <pubDate>Mon, 18 Aug 2025 20:50:23 +0800</pubDate>
+      <guid>https://cronrpc.github.io/zh/posts/worley-noise-generator/</guid>
+      <description>&lt;h2 id=&#34;worley-noise&#34;&gt;Worley Noise&lt;/h2&gt;
+&lt;p&gt;Worley Noise&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;（也称为 Voronoi noise 和 Cellular noise）是由 Steven Worley&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; 在 1996 年引入的一种噪声函数。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;worley noise&#34; loading=&#34;lazy&#34; src=&#34;https://cronrpc.github.io/zh/posts/worley-noise-generator/worley-noise.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;它的样子看起来就是生物细胞的样子，由一个个 cell 构成，作者本身也是叫它“Cellular Texture”。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
