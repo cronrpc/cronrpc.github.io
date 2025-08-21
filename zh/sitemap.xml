@@ -2,6 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://cronrpc.github.io/zh/</loc>
+    <lastmod>2025-08-19T13:31:09+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/"
+                />
+  </url><url>
+    <loc>https://cronrpc.github.io/zh/posts/</loc>
+    <lastmod>2025-08-19T13:31:09+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/posts/"
+                />
+  </url><url>
     <loc>https://cronrpc.github.io/zh/categories/</loc>
     <lastmod>2025-08-18T20:50:23+08:00</lastmod>
     <xhtml:link
@@ -13,19 +39,6 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://cronrpc.github.io/zh/categories/"
-                />
-  </url><url>
-    <loc>https://cronrpc.github.io/zh/</loc>
-    <lastmod>2025-08-18T20:50:23+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cronrpc.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://cronrpc.github.io/zh/"
                 />
   </url><url>
     <loc>https://cronrpc.github.io/zh/tags/image-processing/</loc>
@@ -52,19 +65,6 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://cronrpc.github.io/zh/categories/math/"
-                />
-  </url><url>
-    <loc>https://cronrpc.github.io/zh/posts/</loc>
-    <lastmod>2025-08-18T20:50:23+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cronrpc.github.io/en/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://cronrpc.github.io/zh/posts/"
                 />
   </url><url>
     <loc>https://cronrpc.github.io/zh/tags/</loc>
