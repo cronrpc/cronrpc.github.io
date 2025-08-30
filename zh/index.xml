@@ -11,8 +11,18 @@
     </image>
     <generator>Hugo -- 0.147.2</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 18 Aug 2025 20:50:23 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 29 Aug 2025 23:01:50 +0800</lastBuildDate>
     <atom:link href="https://cronrpc.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unity Stencil Buffer &amp; Stencil Test</title>
+      <link>https://cronrpc.github.io/zh/posts/stencil-buffer-and-stencil-test/</link>
+      <pubDate>Fri, 29 Aug 2025 23:01:50 +0800</pubDate>
+      <guid>https://cronrpc.github.io/zh/posts/stencil-buffer-and-stencil-test/</guid>
+      <description>&lt;h2 id=&#34;stencil-介绍&#34;&gt;Stencil 介绍&lt;/h2&gt;
+&lt;p&gt;Stencil 的概念和 Stencil Buffer 联系在一起。&lt;/p&gt;
+&lt;p&gt;我们知道，屏幕有深度缓冲，在默认情况下，当正在渲染的点的距离大于深度缓冲里的值时，就会直接丢弃此时Pass。&lt;/p&gt;
+&lt;p&gt;Stencil Buffer 也是一个 Buffer，不同于深度缓冲有默认的大小对比行为，Stencil Buffer 需要我们手动约定处理方式。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Worley Noise / Voronoi Noise Generator</title>
       <link>https://cronrpc.github.io/zh/posts/worley-noise-generator/</link>

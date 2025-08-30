@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.147.2</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 18 Aug 2025 20:50:23 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 29 Aug 2025 23:01:50 +0800</lastBuildDate>
     <atom:link href="https://cronrpc.github.io/zh/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unity</title>
+      <link>https://cronrpc.github.io/zh/categories/unity/</link>
+      <pubDate>Fri, 29 Aug 2025 23:01:50 +0800</pubDate>
+      <guid>https://cronrpc.github.io/zh/categories/unity/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Math</title>
       <link>https://cronrpc.github.io/zh/categories/math/</link>
