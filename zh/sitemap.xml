@@ -56,12 +56,42 @@
   </url><url>
     <loc>https://cronrpc.github.io/zh/categories/unity/</loc>
     <lastmod>2025-08-29T23:01:50+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/categories/unity/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/categories/unity/"
+                />
   </url><url>
     <loc>https://cronrpc.github.io/zh/tags/unity/</loc>
     <lastmod>2025-08-29T23:01:50+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/tags/unity/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/tags/unity/"
+                />
   </url><url>
     <loc>https://cronrpc.github.io/zh/posts/stencil-buffer-and-stencil-test/</loc>
     <lastmod>2025-08-29T23:01:50+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/posts/stencil-buffer-and-stencil-test/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/posts/stencil-buffer-and-stencil-test/"
+                />
   </url><url>
     <loc>https://cronrpc.github.io/zh/tags/image-processing/</loc>
     <lastmod>2025-08-18T20:50:23+08:00</lastmod>

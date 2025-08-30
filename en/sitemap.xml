@@ -2,6 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://cronrpc.github.io/en/categories/</loc>
+    <lastmod>2025-08-29T23:01:51+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/categories/"
+                />
+  </url><url>
     <loc>https://cronrpc.github.io/en/</loc>
     <lastmod>2025-08-29T23:01:51+08:00</lastmod>
     <xhtml:link
@@ -28,17 +41,56 @@
                 href="https://cronrpc.github.io/en/posts/"
                 />
   </url><url>
-    <loc>https://cronrpc.github.io/en/categories/</loc>
-    <lastmod>2025-08-18T20:50:23+08:00</lastmod>
+    <loc>https://cronrpc.github.io/en/posts/stencil-buffer-and-stencil-test/</loc>
+    <lastmod>2025-08-29T23:01:51+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://cronrpc.github.io/zh/categories/"
+                href="https://cronrpc.github.io/zh/posts/stencil-buffer-and-stencil-test/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://cronrpc.github.io/en/categories/"
+                href="https://cronrpc.github.io/en/posts/stencil-buffer-and-stencil-test/"
+                />
+  </url><url>
+    <loc>https://cronrpc.github.io/en/tags/</loc>
+    <lastmod>2025-08-29T23:01:51+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/tags/"
+                />
+  </url><url>
+    <loc>https://cronrpc.github.io/en/categories/unity/</loc>
+    <lastmod>2025-08-29T23:01:51+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/categories/unity/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/categories/unity/"
+                />
+  </url><url>
+    <loc>https://cronrpc.github.io/en/tags/unity/</loc>
+    <lastmod>2025-08-29T23:01:51+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/tags/unity/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/tags/unity/"
                 />
   </url><url>
     <loc>https://cronrpc.github.io/en/tags/image-processing/</loc>
@@ -65,19 +117,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://cronrpc.github.io/en/categories/math/"
-                />
-  </url><url>
-    <loc>https://cronrpc.github.io/en/tags/</loc>
-    <lastmod>2025-08-18T20:50:23+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://cronrpc.github.io/zh/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cronrpc.github.io/en/tags/"
                 />
   </url><url>
     <loc>https://cronrpc.github.io/en/tags/worley-noise/</loc>
