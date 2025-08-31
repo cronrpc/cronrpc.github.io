@@ -2,21 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://cronrpc.github.io/en/categories/</loc>
-    <lastmod>2025-08-29T23:01:51+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://cronrpc.github.io/zh/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cronrpc.github.io/en/categories/"
-                />
-  </url><url>
     <loc>https://cronrpc.github.io/en/</loc>
-    <lastmod>2025-08-29T23:01:51+08:00</lastmod>
+    <lastmod>2025-08-31T12:18:21+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -29,7 +16,7 @@
                 />
   </url><url>
     <loc>https://cronrpc.github.io/en/posts/</loc>
-    <lastmod>2025-08-29T23:01:51+08:00</lastmod>
+    <lastmod>2025-08-31T12:18:21+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -39,6 +26,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://cronrpc.github.io/en/posts/"
+                />
+  </url><url>
+    <loc>https://cronrpc.github.io/en/categories/</loc>
+    <lastmod>2025-08-29T23:01:51+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://cronrpc.github.io/zh/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://cronrpc.github.io/en/categories/"
                 />
   </url><url>
     <loc>https://cronrpc.github.io/en/posts/stencil-buffer-and-stencil-test/</loc>
