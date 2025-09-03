@@ -1,0 +1,540 @@
+<!doctype html><html lang=zh dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Fourier Transform | cronrpc 中文</title>
+<meta name=keywords content="Math,Fourier Transform"><meta name=description content="1. 傅里叶变换
+傅里叶变换起源于18世纪研究振动与热传导的问题。欧拉、达朗贝尔和伯努利提出用正弦波描述振动，奠定了思想基础。
+19世纪初，法国数学家傅里叶在研究热传导时提出任何函数都可展开为正弦与余弦级数，这就是傅里叶级数，并逐渐发展为傅里叶变换。"><meta name=author content="cronrpc"><link rel=canonical href=https://cronrpc.github.io/zh/posts/fourier-transform/><link crossorigin=anonymous href=/assets/css/stylesheet.2211ca3164be7830024f6aad2b3a2e520843a64f8f048445c3401c1249aa051d.css integrity="sha256-IhHKMWS+eDACT2qtKzouUghDpk+PBIRFw0AcEkmqBR0=" rel="preload stylesheet" as=style><link rel=icon href=https://cronrpc.github.io/icons/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://cronrpc.github.io/icons/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://cronrpc.github.io/icons/favicon-32x32.png><link rel=apple-touch-icon href=https://cronrpc.github.io/icons/apple-touch-icon.png><link rel=mask-icon href=https://cronrpc.github.io/icons/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh href=https://cronrpc.github.io/zh/posts/fourier-transform/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script><meta property="og:url" content="https://cronrpc.github.io/zh/posts/fourier-transform/"><meta property="og:site_name" content="cronrpc 中文"><meta property="og:title" content="Fourier Transform"><meta property="og:description" content="1. 傅里叶变换 傅里叶变换起源于18世纪研究振动与热传导的问题。欧拉、达朗贝尔和伯努利提出用正弦波描述振动，奠定了思想基础。
+19世纪初，法国数学家傅里叶在研究热传导时提出任何函数都可展开为正弦与余弦级数，这就是傅里叶级数，并逐渐发展为傅里叶变换。"><meta property="og:locale" content="zh"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-08-31T12:18:21+08:00"><meta property="article:modified_time" content="2025-08-31T12:18:21+08:00"><meta property="article:tag" content="Math"><meta property="article:tag" content="Fourier Transform"><meta property="og:image" content="https://cronrpc.github.io/cover.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://cronrpc.github.io/cover.png"><meta name=twitter:title content="Fourier Transform"><meta name=twitter:description content="1. 傅里叶变换
+傅里叶变换起源于18世纪研究振动与热传导的问题。欧拉、达朗贝尔和伯努利提出用正弦波描述振动，奠定了思想基础。
+19世纪初，法国数学家傅里叶在研究热传导时提出任何函数都可展开为正弦与余弦级数，这就是傅里叶级数，并逐渐发展为傅里叶变换。"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://cronrpc.github.io/zh/posts/"},{"@type":"ListItem","position":2,"name":"Fourier Transform","item":"https://cronrpc.github.io/zh/posts/fourier-transform/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Fourier Transform","name":"Fourier Transform","description":"1. 傅里叶变换 傅里叶变换起源于18世纪研究振动与热传导的问题。欧拉、达朗贝尔和伯努利提出用正弦波描述振动，奠定了思想基础。\n19世纪初，法国数学家傅里叶在研究热传导时提出任何函数都可展开为正弦与余弦级数，这就是傅里叶级数，并逐渐发展为傅里叶变换。\n","keywords":["Math","Fourier Transform"],"articleBody":"1. 傅里叶变换 傅里叶变换起源于18世纪研究振动与热传导的问题。欧拉、达朗贝尔和伯努利提出用正弦波描述振动，奠定了思想基础。\n19世纪初，法国数学家傅里叶在研究热传导时提出任何函数都可展开为正弦与余弦级数，这就是傅里叶级数，并逐渐发展为傅里叶变换。\n1.1 函数的正交 如果是向量的正交，就是向量的内积为$0$。\n而函数的正交，我们以区间 $[-\\pi,\\pi]$ 为例；在 $[0,2\\pi]$ 或任意长度为 $2\\pi$ 的区间上结论相同\n定义定积分：\n$$ \\langle f,g\\rangle:=\\int_{-\\pi}^{\\pi} f(x)g(x) dx $$\n表示函数的内积，它的值如果为$0$，我们就称这两个函数在这个周期内正交。\n1.2 三角函数正交性 有如下函数\n$$ 1, cosx, sinx, cos2x, sin2x, cos3x, sin3x, … $$\n其中 $1$ 也可以看成 $cos0x$ 。\n首先，我们知道，对于任何非零整数 $k$，都有\n$$ \\begin{align} \\int_{-\\pi}^{\\pi}\\cos kxdx \u0026 =0\\\\ \\int_{-\\pi}^{\\pi}\\sin kxdx \u0026 =0 \\end{align} $$\n因为它们在完整周期上的积分为零。所以 $1$ 与上述其他三角函数都是正交的。\n现在讨论三角函数之间的三种情况：\n$\\cos mx$ 与 $\\cos nx$ 的正交性 若 $m\\neq n$ 并且 $m\\neq 0, n\\neq 0$\n$$ \\begin{align*} \\int_{-\\pi}^{\\pi}\\cos mx\\cos nxdx \u0026=\\tfrac12\\int_{-\\pi}^{\\pi}\\big[\\cos(m-n)x+\\cos(m+n)x\\big]dx \\\\ \u0026=0 \\end{align*} $$\n$\\sin mx$ 与 $\\sin nx$ 的正交性 若 $m\\neq n$ 并且 $m\\neq 0, n\\neq 0$\n$$ \\begin{align*} \\int_{-\\pi}^{\\pi}\\sin mx\\sin nxdx \u0026=\\tfrac12\\int_{-\\pi}^{\\pi}\\big[\\cos(m-n)x-\\cos(m+n)x\\big]dx\\\\ \u0026=0 \\end{align*} $$\n$\\sin mx$ 与 $\\cos nx$ 互相正交 若 $m\\neq 0, n\\neq 0$\n$$ \\begin{align*} \\int_{-\\pi}^{\\pi}\\sin mx\\cos nxdx \u0026=\\tfrac12\\int_{-\\pi}^{\\pi}\\big[\\sin(m+n)x+\\sin(m-n)x\\big]dx\\\\ \u0026=0 \\end{align*} $$\n所以上述任意三角函数之间，都是正交的。\n现在来计算一下，与自身内积的结果：\n$$ \\int_{-\\pi}^{\\pi}\\cos^2 nxdx =\\tfrac12\\int_{-\\pi}^{\\pi}\\big[1+\\cos(2n x)\\big]dx =\\tfrac12\\big[2\\pi+0\\big]=\\pi. $$\n$$ \\int_{-\\pi}^{\\pi}\\sin^2 nxdx =\\tfrac12\\int_{-\\pi}^{\\pi}\\big[1-\\cos(2n x)\\big]dx =\\tfrac12\\big[2\\pi-0\\big]=\\pi. $$\n$$ \\int_{-\\pi}^{\\pi} 1\\cdot 1,dx=2\\pi $$\n总结：\n任意$m\\neq n$的三角函数之间正交。 三角函数在 $[-\\pi,\\pi]$ 周期的内积是 $\\pi$ $1$ 在 $[-\\pi,\\pi]$ 周期的内积是 $2\\pi$ 1.3 周期为 $2\\pi$ 的傅里叶级数展开 考虑一个周期函数，它的周期为$T = 2\\pi$，即满足$f(x)=f(x+2\\pi)$。\n那么它可以表示为三角级数的和：\n$$ \\begin{align} f(x) \u0026 = \\sum_{n=0}^{\\infin}{a_n \\cos{nx}}+\\sum_{n=0}^{\\infin}{b_n \\sin{nx}} \\\\ \u0026 = a_0 + \\sum_{n=1}^{\\infin}{a_n \\cos{nx}}+\\sum_{n=1}^{\\infin}{b_n \\sin{nx}} \\end{align} $$\n如何求出每个 $a_n$ 的值？可以利用正交性来求。\n在周期内进行内积，左右同时乘以 $1$ 并积分：\n$$ \\begin{align} \\int_{-\\pi}^{\\pi}{1 \\cdot f(x) dx} \u0026= \\int_{-\\pi}^{\\pi}{a_0 dx} + \\int_{-\\pi}^{\\pi}{\\sum_{n=1}^{\\infin}{a_n \\cos{nx} dx}} + \\int_{-\\pi}^{\\pi}{\\sum_{n=1}^{\\infin}{b_n \\sin{nx} dx}} \\end{align} $$\n由于三角函数周期性，后面的三角函数都是积分结果都是 $0$，所以有：\n$$ \\begin{align} \\int_{-\\pi}^{\\pi}{f(x) dx} \u0026= 2 \\pi a_0 \\\\ a_0 \u0026= \\frac{1}{2\\pi} \\int_{-\\pi}^{\\pi}{f(x) dx} \\end{align} $$\n注意，这里有的教科书上，是令\n$$ \\begin{align} a_0 \u0026= \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi}{f(x) dx} \\end{align} $$\n然后在公式阶段使用的是：\n$$ \\begin{align} f(x) \u0026 = \\frac{a_0}{2} + \\sum_{n=1}^{\\infin}{(a_n \\cos{nx}+ b_n \\sin{nx})} \\end{align} $$\n它们只是定义习惯，实际上没啥区别。我们后面采用这个定义的方式。\n接下来求 $a_n$，依然是同时乘以对应的三角函数然后在周期内进行积分，假设我们要求的是 $n=m$ 时的 $a_m$，依据三角函数正交性：\n$$ \\begin{align*} \\int_{-\\pi}^{\\pi}{f(x) \\cos{mx} dx} =\u0026 \\int_{-\\pi}^{\\pi}{a_0 \\cos{mx} dx} \\\\ \u0026+ \\int_{-\\pi}^{\\pi}{\\sum_{n=1}^{\\infin}{a_n \\cos{nx} \\cos{mx} dx}} \\\\ \u0026+ \\int_{-\\pi}^{\\pi}{\\sum_{n=1}^{\\infin}{b_n \\sin{nx} \\cos{mx} dx}} \\\\ =\u0026 0 + \\int_{-\\pi}^{\\pi}{a_m \\cos^2{mx}dx} + 0 \\\\ =\u0026 a_m \\pi \\end{align*} $$\n所以有：\n$$ \\begin{align} a_n = \\frac{1}{\\pi}\\int_{-\\pi}^{\\pi}{f(x) \\cos{nx} dx} \\end{align} $$\n同理 $b_n$ 也可以求出：\n$$ \\begin{align} b_n = \\frac{1}{\\pi}\\int_{-\\pi}^{\\pi}{f(x) \\sin{nx} dx} \\end{align} $$\n最后，结论如下：\n一个周期为 $2\\pi$的函数 $f(x)$，可以通过三角函数展开：\n$$ \\begin{align} f(x) \u0026 = \\frac{a_0}{2} + \\sum_{n=1}^{\\infin}{a_n \\cos{nx}} + \\sum_{n=1}^{\\infin}{b_n \\sin{nx}} \\end{align} $$\n其中：\n$$ \\begin{align} a_0 \u0026= \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi}{f(x) dx} \\\\ a_n \u0026= \\frac{1}{\\pi}\\int_{-\\pi}^{\\pi}{f(x) \\cos{nx} dx} \\\\ b_n \u0026= \\frac{1}{\\pi}\\int_{-\\pi}^{\\pi}{f(x) \\sin{nx} dx} \\end{align} $$\n1.4 周期为 $2L$ 的傅里叶级数展开 上一小节探讨的是在 $2\\pi$ 为周期的函数上的三角级数展开，而我们希望可以在任意周期上进行展开。\n设原始函数 $f(t)$ 的周期是 $[-L, L]$，如果我们希望一个中间变量 $x$ 的周期是 $[-\\pi, \\pi]$，那么就可以令：\n$$ \\begin{align} x \u0026= \\frac{\\pi}{L}t \\\\ t \u0026= \\frac{L}{\\pi}x \\end{align} $$\n此时有，\n$$ f(t) = f(\\frac{L}{\\pi}x) \\overset{\\triangle}{=} g(x) $$\n根据在前面的推导中有：\n$$ \\begin{align} g(x) \u0026 = \\frac{a_0}{2} + \\sum_{n=1}^{\\infin}{a_n \\cos{nx}} + \\sum_{n=1}^{\\infin}{b_n \\sin{nx}}\\\\ a_0 \u0026= \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi}{g(x) dx} \\\\ a_n \u0026= \\frac{1}{\\pi}\\int_{-\\pi}^{\\pi}{g(x) \\cos{nx} dx} \\\\ b_n \u0026= \\frac{1}{\\pi}\\int_{-\\pi}^{\\pi}{g(x) \\sin{nx} dx} \\end{align} $$\n统统做如下的替换，\n$$ \\begin{align} x \u0026= \\frac{\\pi}{L}t\\\\ \\Rightarrow dx \u0026= \\frac{\\pi}{L}dt \\end{align} $$\n以及\n$$ nx = n\\frac{\\pi}{L}t = (\\frac{n\\pi}{L})t $$\n于是有，\n$$ \\begin{align} f(t) \u0026 = \\frac{a_0}{2} + \\sum_{n=1}^{\\infin}{a_n \\cos{\\frac{n\\pi}{L}t}} + \\sum_{n=1}^{\\infin}{b_n \\sin{\\frac{n\\pi}{L}t}}\\\\ a_0 \u0026= \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi}{g(x) dx}\\\\ \u0026= \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi}{f(\\frac{L}{\\pi}x) dx}\\\\ \u0026= \\frac{1}{\\pi} \\int_{-L}^{L}{f(t) \\frac{\\pi}{L} dt} \\\\ \u0026= \\frac{1}{L} \\int_{-L}^{L}{f(t) dt} \\end{align} $$\n同理， $$ \\begin{align} a_n \u0026= \\frac{1}{L}\\int_{-L}^{L}{f(t) \\cos{\\frac{n\\pi}{L}t} dt} \\\\ b_n \u0026= \\frac{1}{L}\\int_{-L}^{L}{f(t) \\sin{\\frac{n\\pi}{L}t} dt} \\end{align} $$\n在工程领域中，习惯从 $0$ 开始积分，记\n$$ T=2L\\\\ \\\\ \\omega = \\frac{\\pi}{L} = \\frac{2\\pi}{T} $$\n于是三角级数展开又可以写为：\n$$ \\begin{align} f(t) \u0026 = \\frac{a_0}{2} + \\sum_{n=1}^{\\infin}{a_n \\cos{n\\omega t}} + \\sum_{n=1}^{\\infin}{b_n \\sin{n\\omega t}}\\\\ a_0 \u0026= \\frac{2}{T} \\int_{0}^{T}{f(t) dt}\\\\ a_n \u0026= \\frac{2}{T}\\int_{0}^{T}{f(t) \\cos{n\\omega t} dt} \\\\ b_n \u0026= \\frac{2}{T}\\int_{0}^{T}{f(t) \\sin{n\\omega t} dt} \\end{align} $$\n1.5 复数形式的傅里叶级数展开 根据欧拉公式\n$$ e^{i\\theta}=\\cos\\theta+i\\sin\\theta $$\n得到\n$$ \\begin{align} \\cos\\theta\u0026=\\frac{1}{2}(e^{i\\theta}+e^{-i\\theta})\\\\ \\sin\\theta\u0026=-\\frac{1}{2}i(e^{i\\theta}-e^{-i\\theta}) \\end{align} $$\n代入到公式中得到：\n$$ \\begin{align} f(t) \u0026 = \\frac{a_0}{2} + \\sum_{n=1}^{\\infin}{a_n \\cos{n\\omega t}} + \\sum_{n=1}^{\\infin}{b_n \\sin{n\\omega t}}\\\\ \u0026=\\frac{a_0}{2} + \\sum_{n=1}^{\\infin}{[a_n\\frac{1}{2}(e^{in\\omega t}+e^{-in\\omega t}) - \\frac{1}{2}ib_n(e^{in\\omega t}-e^{-in\\omega t})]}\\\\ \u0026=\\frac{a_0}{2} + \\sum_{n=1}^{\\infin}{\\frac{a_n-ib_n}{2}e^{in\\omega t}} + \\sum_{n=1}^{\\infin}{\\frac{a_n+ib_n}{2}e^{-in\\omega t}}\\\\ \u0026=\\frac{a_0}{2}e^{0}+\\sum_{n=1}^{\\infin}{\\frac{a_n-ib_n}{2}e^{in\\omega t}} + \\sum_{n=-\\infin}^{-1}{\\frac{a_{-n}+ib_{-n}}{2}e^{in\\omega t}}\\\\ \u0026=\\sum_{-\\infin}^{\\infin}{c_n e^{in\\omega t}} \\end{align} $$\n其中 $c_n$ 定义为：\n$$ c_n = \\begin{cases} \\frac{a_0}{2}, \u0026 n = 0\\\\ \\frac{a_n-ib_n}{2}, \u0026 n = 1,2,3,4,…\\\\ \\frac{a_{-n}+ib_{-n}}{2}, \u0026 n = -1,-2,-3,-4,… \\end{cases} $$\n现在具体计算一下 $c_n$，\n$$ \\begin{align} \\underset{n=1,2,3,…}{c_n} \u0026= \\frac{1}{2}[\\frac{2}{T}\\int_{0}^{T}{f(t) \\cos{n\\omega t} dt} -i\\frac{2}{T}\\int_{0}^{T}{f(t) \\sin{n\\omega t} dt}]\\\\ \u0026= \\frac{1}{T}\\int_{0}^{T}{f(t) (\\cos{n\\omega t}-i\\sin{n\\omega t}) dt}\\\\ \u0026= \\frac{1}{T}\\int_{0}^{T}{f(t) (\\cos{(-n\\omega t)} + i\\sin{(-n\\omega t)}) dt}\\\\ \u0026= \\frac{1}{T}\\int_{0}^{T}{f(t) e^{-in\\omega t} dt} \\end{align} $$\n$$ \\begin{align} \\underset{n=-1,-2,-3,…}{c_n} \u0026= \\frac{1}{2}[\\frac{2}{T}\\int_{0}^{T}{f(t) \\cos{(-n\\omega t)} dt} +i\\frac{2}{T}\\int_{0}^{T}{f(t) \\sin{(-n\\omega t)} dt}]\\\\ \u0026= \\frac{1}{T}\\int_{0}^{T}{f(t) (\\cos{(-n\\omega t)} + i\\sin{(-n\\omega t)}) dt}\\\\ \u0026= \\frac{1}{T}\\int_{0}^{T}{f(t) e^{-in\\omega t} dt} \\end{align} $$\n$$ \\begin{align} \\underset{n=0}{c_n} \u0026= \\frac{1}{2}[\\frac{2}{T} \\int_{0}^{T}{f(t) dt}]\\\\ \u0026= \\frac{1}{T} \\int_{0}^{T}{f(t) dt}\\\\ \u0026= \\frac{1}{T} \\int_{0}^{T}{f(t) e^{-i0\\omega t} dt}\\\\ \u0026= \\frac{1}{T} \\int_{0}^{T}{f(t) e^{-in\\omega t} dt} \\end{align} $$\n所以 $c_n$ 都可以写为一样的形式：\n$$ c_n = \\frac{1}{T} \\int_{0}^{T}{f(t) e^{-in\\omega t} dt} $$\n总结：\n复数形式的傅里叶变换中，对于周期函数 $f(t) = f(t+T)$，有\n$$ \\begin{align} f(t) \u0026= \\sum_{-\\infin}^{\\infin}{c_n e^{in\\omega t}} \\\\ c_n \u0026= \\frac{1}{T} \\int_{0}^{T}{f(t) e^{-in\\omega t} dt} \\end{align} $$\n1.6 周期为 $\\infin$ 的傅里叶级数展开 周期为 $T$ 的函数\n$$ f_T(t) = f_T(t+T) $$\n可以被解析为下列表示\n这里用 $\\omega_0$ 表示基频率 $$ \\begin{align} f_T(t) \u0026= \\sum_{-\\infin}^{\\infin}{c_n e^{in\\omega_0 t}} \\\\ c_n \u0026= \\frac{1}{T} \\int_{-\\frac{T}{2}}^{\\frac{T}{2}}{f_T(t) e^{-in\\omega_0 t} dt}\\\\ \\omega_0 \u0026= \\frac{2\\pi}{T} \\end{align} $$\n现在的问题是，如果一个非周期函数，那么该怎么处理？\n不是周期函数，换个角度来说，就是周期无穷大，就是无穷大之后才会重复。\n我们直接把 $c_n$ 代入回去，同时令 $f(t) = \\underset{T \\to \\infin}{f_T}$，\n$$ \\begin{align} f(t) \u0026= \\sum_{-\\infin}^{\\infin}{\\frac{1}{T} \\int_{-\\frac{T}{2}}^{\\frac{T}{2}}{f(t) e^{-in\\omega_0 t} dt} e^{in\\omega_0 t}}\\\\ \u0026= \\sum_{-\\infin}^{\\infin}{\\frac{\\omega_0}{2\\pi} \\int_{-\\infin}^{\\infin}{f(t) e^{-in\\omega_0 t} dt} e^{in\\omega_0 t}} \\end{align} $$\n令 $\\omega_0 = d\\omega$，那么 $n\\omega_0 = \\omega$，所以\n$$ \\begin{align} f(t) \u0026= \\sum_{-\\infin}^{\\infin}{\\frac{\\omega_0}{2\\pi} \\int_{-\\infin}^{\\infin}{f(t) e^{-in\\omega_0 t} dt} e^{in\\omega_0 t}}\\\\ \u0026= \\int_{-\\infin}^{\\infin}{\\frac{1}{2\\pi}\\int_{-\\infin}^{\\infin}{f(t) e^{-iomega t} dt} e^{i\\omega t} d\\omega}\\\\ \u0026= \\int_{-\\infin}^{\\infin}{\\frac{1}{2\\pi} \\left( \\int_{-\\infin}^{\\infin}{f(t) e^{-i\\omega t} dt} \\right) e^{i\\omega t} d\\omega}\\\\ \u0026= \\frac{1}{2\\pi} \\int_{-\\infin}^{\\infin}{\\left( \\int_{-\\infin}^{\\infin}{f(t) e^{-i\\omega t} dt} \\right) e^{i\\omega t} d\\omega} \\end{align} $$\n这里定义 $F(\\omega)$，就得到傅里叶变换的最终形式\n$$ \\begin{align} F(\\omega) \u0026= \\int_{-\\infin}^{\\infin}{f(t) e^{-i\\omega t} dt} \\end{align} $$\n而逆变换是\n$$ \\begin{align} f(t) \u0026= \\frac{1}{2\\pi} \\int_{-\\infin}^{\\infin}{ F(\\omega) e^{i\\omega t} d\\omega} \\end{align} $$\n1.7 对称形式、工程学派、频率形式 在上面的傅里叶变换中，我们把 $2\\pi$ 放在逆变换中，实际上还有下列的形式：\n对称形式（常用在数学里），把 $2\\pi$ 均分到正变换和逆变换： $$ F(\\omega) = \\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty} f(t)e^{-i\\omega t} dt $$\n$$ f(t) = \\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty} F(\\omega)e^{i\\omega t} d\\omega $$\n工程学派（常见于电气工程/信号处理），把 $2\\pi$ 放在正变换中，逆变换没有 $2\\pi$： $$ F(\\omega) = \\frac{1}{2\\pi}\\int_{-\\infty}^{\\infty} f(t)e^{-i\\omega t} dt $$\n$$ f(t) = \\int_{-\\infty}^{\\infty} F(\\omega)e^{i\\omega t} d\\omega $$\n周期形式（用频率 $f$ 而不是角频率 $\\omega$），如果令 $\\omega = 2\\pi f$，就可以写成： $$ F(f) = \\int_{-\\infty}^{\\infty} f(t)e^{-i 2\\pi f t} dt $$\n$$ f(t) = \\int_{-\\infty}^{\\infty} F(f)e^{i 2\\pi f t} df $$\n2. 离散傅里叶变换 在前面的讨论中，我们涉及到是连续函数和无穷频率。\n虽然前面已经学习了傅里叶变换的积分形式，但是实际工程中的最大问题是工程中的采样点不是连续函数。通常是离散的点。\n2.1 离散傅立叶变换 DFT 对于一个离散的采样点，比如 N 个点的序列 $x[n]$，直接认为它的周期就是 N。\n已知周期为 T 的傅里叶变换形式是：\n$$ \\begin{align} c_n \u0026= \\frac{1}{T}\\int_{0}^{T}{f(t) e^{-in\\omega t} dt}\\\\ f(t) \u0026= \\sum_{n=-\\infin}^{\\infin}{c_n e^{in\\omega t}} \\end{align} $$\n现在令 $\\omega = \\frac{2\\pi}{N}$，$T \\to N$，同时把 $\\frac{1}{T} \\to \\frac{1}{N}$ 这个常量移动到逆变换里面。同时原本的 n 用 k 表示，原本的 t 用序号 n 表示。\n$$ \\begin{align} X[k] \u0026=\\sum_{n=0}^{N-1}{x[n] \\cdot e^{-j\\frac{2\\pi}{N}kn}}\\\\ x[n] \u0026= \\frac{1}{N} \\sum_{k=0}^{N-1}{X[k]\\cdot e^{j\\frac{2\\pi}{N}kn}} \\end{align} $$\n其中 $k=0,1,2,…,N-1$\n2.2 证明 DFT 成立 把 $X[k]$ 代入逆变换公式：\n$$ \\begin{aligned} x[n] \u0026= \\frac{1}{N}\\sum_{k=0}^{N-1} X[k],e^{j\\frac{2\\pi}{N}kn} \\\\ \u0026= \\frac{1}{N}\\sum_{k=0}^{N-1}\\left(\\sum_{m=0}^{N-1} x[m],e^{-j\\frac{2\\pi}{N}km}\\right)e^{j\\frac{2\\pi}{N}kn} \\\\ \u0026= \\frac{1}{N}\\sum_{m=0}^{N-1} x[m]\\sum_{k=0}^{N-1} e^{j\\frac{2\\pi}{N}k(n-m)} \\end{aligned} $$\n考虑内层和\n$$ S_{n-m}=\\sum_{k=0}^{N-1} e^{j\\frac{2\\pi}{N}k(n-m)} $$\n令 $r=n-m$（整数）。若 $r\\equiv 0\\pmod N$（即 $n=m$），则每项都是 $1$，于是\n$$ S_{0}=N $$\n若 $r\\not\\equiv 0\\pmod N$，则这是一个首项为 $1$、公比 $q=e^{j\\frac{2\\pi}{N}r}\\neq1$ 的几何级数，\n$$ S_{r}=\\frac{1-q^{N}}{1-q}=\\frac{1-e^{j2\\pi r}}{1-q}=0 $$\n因为 $e^{j2\\pi r}=1$。因此\n$$ S_{n-m}= \\begin{cases} N,\u0026 n=m,\\\\ 0,\u0026 n\\ne m. \\end{cases} $$\n把它代回去：\n$$ x[n]=\\frac{1}{N}\\sum_{m=0}^{N-1} x[m]S_{n-m}=\\frac{1}{N}\\big(x[n]\\cdot N\\big)=x[n]. $$\n这就证明了逆变换确实把由前向变换得到的 $X[k]$ 恢复回原序列 $x[n]$。换句话说，复指数在这组离散点上是正交的，且\n$$ \\frac{1}{N}\\sum_{k=0}^{N-1} e^{j\\frac{2\\pi}{N}k(n-m)}=\\delta_{n,m} $$\n2.3 共轭对称性 $$ \\begin{align} X[k] \u0026=\\sum_{n=0}^{N-1}{x[n] \\cdot e^{-j\\frac{2\\pi}{N}kn}} \\end{align} $$\n$X[k]$ 的共轭值为：\n$$ \\begin{aligned} X^{\\ast}[k] \u0026=\\left( \\sum_{n=0}^{N-1}{x[n] \\cdot e^{-j\\frac{2\\pi}{N}kn}} \\right)^{\\ast} \\end{aligned} $$\n由于 $x[n]$ 是实数，所以\n$$ \\begin{aligned} X^{\\ast}[k] \u0026=\\sum_{n=0}^{N-1}{x[n] \\cdot (e^{-j\\frac{2\\pi}{N}kn}})^{\\ast}\\\\ \u0026=\\sum_{n=0}^{N-1}{x[n] \\cdot (e^{j\\frac{2\\pi}{N}kn}})\\\\ \u0026=\\sum_{n=0}^{N-1}{x[n] \\cdot (e^{j\\frac{2\\pi}{N}(kn-Nn)}})\\\\ \u0026=\\sum_{n=0}^{N-1}{x[n] \\cdot (e^{-j\\frac{2\\pi}{N}(N-k)n}})\\\\ \u0026=X[N-k] \\end{aligned} $$\n结论：\n如果 $x[n]$ 是实数序列，则有\n$$ X[k] = X^*[N-k], \\quad k=1,2,\\dots,N-1 $$\n也就是说，DFT 的频谱是共轭对称的。\n还有一个有意思的结论，那就是当 N 是偶数的时候， $k = 0$ 和 $k = N/2$ 都只有实数部分的。\n$$ \\begin{aligned} X[N/2] \u0026= X^{\\ast}[N-N/2] = N^{\\ast}[N/2]\\\\ \u0026= \\Re{(X[N/2])} \\end{aligned} $$\n2.4 奈奎斯特采样定理 对长度为 $N$ 的序列 $x[n]$，其 DFT 是\n$$ X[k] = \\sum_{n=0}^{N-1} x[n] e^{-j \\frac{2\\pi}{N}kn}, \\quad k = 0,1,\\dots,N-1 $$\n这里 $k$ 对应的是频率索引，实际频率为\n$$ f_k = \\frac{k}{N} f_s $$\n其中 $f_s$ 是采样率。\n根据奈奎斯特采样定理：\n连续信号在采样率 $f_s$ 下，最大能无失真恢复的频率是 $f_s/2$（奈奎斯特频率）。 也就是说，$0 \\leq f \\leq f_s/2$ 才是“有效”区间。 所以，DFT 给出的频率范围 $0 \\leq f \u003c f_s$，其中一半其实是镜像频率。\n这个结论实际上和前面的共轭对称性也是符合的，有一半的频率实际上是冗余的。\n同时从信息的角度来说，$N$ 个实数可以通过 $\\frac{N}{2}$ 个复数来恢复信息，所以也是合理的。\n2.5 周期性与负频率 离散傅里叶变换 (DFT) 在频率域上具有 周期性。其定义为\n$$ X[k] = \\sum_{n=0}^{N-1} x[n] e^{-j\\frac{2\\pi}{N}kn}, \\quad k=0,1,\\dots,N-1 $$\n如果将频率索引扩展到任意整数 $m$，则有\n$$ X[k+mN] = \\sum_{n=0}^{N-1} x[n] e^{-j\\frac{2\\pi}{N}(k+mN)n} = \\sum_{n=0}^{N-1} x[n] e^{-j\\frac{2\\pi}{N}kn} e^{-j2\\pi mn} $$\n由于 $e^{-j2\\pi mn} = 1$，因此\n$$ X[k+mN] = X[k] $$\n这表明 DFT 在频率索引上以 $N$ 为周期。换句话说，频谱在频率轴上是环形的，超过范围会自动折返。\n虽然 DFT 的索引 $k$ 只定义在 $[0, N-1]$，但通过周期性，可以自然引入“负频率”的概念。具体地：\n$$ X[-k] = X[N-k]\\\\ k=-1,-2,-3,… $$\n结合前面的共轭对称性，可以发现一个有趣的现象：\n$$ X[-k] = X[N-k] = X^{\\ast}[k] $$\n即正负频率也呈现共轭对称性。\n因此，原本的索引\n$$ k = 0, 1, 2, \\dots, \\tfrac{N}{2}-1, \\tfrac{N}{2}, \\tfrac{N}{2}+1, \\dots, N-1 $$\n可以等价地写作\n$$ k = 0, 1, 2, \\dots, \\tfrac{N}{2}-1, \\tfrac{N}{2}, -\\tfrac{N}{2}+1, \\dots, -2, -1 $$\n3. 快速傅里叶变换 快速傅里叶变换（FFT）的思想最早可追溯到19世纪初。1805年，高斯在研究天体轨道时，已经提出过一种相当于 FFT 的高效算法，但他的工作仅以笔记形式保存，并未被广泛传播。之后一个多世纪里，离散傅里叶变换（DFT）仍以 $O(N^2)$ 的复杂度被直接计算。\n直到1965年，IBM 的 James Cooley 与 Princeton 的 John Tukey 在研究数值天气预报时重新发现并系统化了这一方法，他们意识到可以通过分治与旋转因子对称性，大幅减少计算量。论文发表后引起轰动，使大规模频域分析首次成为现实。\n有趣的是，FFT 并非“新算法”，而是对古老数学思想的复兴与推广。正是计算机硬件的兴起与实际需求的迫切，才让这项算法走出历史笔记，成为信号处理、通信、图像分析与科学计算中不可或缺的核心工具。\n3.1 离散傅里叶变换的复杂度 依据前面，离散傅里叶变换的定义为：\n$$ X[k] = \\sum_{n=0}^{N-1} x[n] e^{-j \\frac{2\\pi}{N} kn}, \\quad k=0,1,\\dots,N-1 $$\n直接计算每个 $X[k]$ 需要 $N$ 次乘法以及 $N$ 项求和，总共有 $N$ 个 $k$，因此时间复杂度为：\n$$ \\mathcal{O}(N^2) $$\n当 $N$ 较大时，这样的复杂度难以接受。\n快速傅里叶变换（FFT）通过利用对称性和递归分治思想，将复杂度降到：\n$$ \\mathcal{O}(N \\log N) $$\n这也是其在信号处理、图像处理、数值计算等领域广泛应用的原因。\n3.2 旋转因子的性质 在 DFT 中，我们定义指数部分：\n$$ W_N = e^{-j \\frac{2\\pi}{N}} $$\n它被称为 旋转因子 (Twiddle Factor)，于是\n$$ W_N^{kn} = e^{-j \\frac{2\\pi}{N}kn} $$\n此时 DFT 公式可写为：\n$$ X[k] = \\sum_{n=0}^{N-1} x[n] W_N^{kn} $$\n旋转因子具有一些重要性质：\n周期性 $$ W_N^{a+N} = e^{-j \\frac{2\\pi}{N}(a+N)} = e^{-j \\frac{2\\pi}{N}(a)} e^{-j2\\pi} = e^{-j \\frac{2\\pi}{N}(a)} = W_N^a $$\n对称性 $$ W_N^{a+\\frac{N}{2}} = e^{-j \\frac{2\\pi}{N}(a+\\frac{N}{2})} = e^{-j \\frac{2\\pi}{N}(a)} e^{-j\\pi} = - e^{-j \\frac{2\\pi}{N}(a)} = - W_N^a $$\n缩放性 $$ W_N^{a} = e^{-j \\frac{2\\pi}{N}(a)} = e^{-j \\frac{2\\pi}{N/m}(a/m)} = W_{N/n}^{a/m} $$\n这些性质可以使得计算量大大减少。\n3.3 快速傅里叶变换推导式 下面我们就来看看旋转因子的这些性质是如何被使用的。\n设原始序列为 $x[n]$，长度为 $N$（假设 $N=2^m$ 为 2 的幂）。如果实际工程中遇到不满足 2 的幂的点，可以直接补零到 $N=2^m$ 长度，复原的时候截断后面的零即可。\n我们还是先回到原来的公式：\n$$ X[k] = \\sum_{n=0}^{N-1} x[n] W_N^{kn} $$\n拆分成奇数部分和偶数部分\n$$ \\begin{aligned} X[k] \u0026= \\sum_{m=0}^{N/2-1} x[2m] \\cdot W_N^{k \\cdot 2m} + \\sum_{m=0}^{N/2-1} x[2m+1] \\cdot W_N^{k \\cdot (2m+1)} \\\\ \u0026 k=1,2,3,…,N-1 \\end{aligned} $$\n这里定义一个专门用来取奇偶的函数，\n$$ \\begin{aligned} x_{even}(m)\u0026=x(2m) \u0026 ,m=0,1,2,…,N/2 - 1\\\\ x_{odd}(m)\u0026=x(2m+1) \u0026 ,m=0,1,2,…,N/2 - 1 \\end{aligned} $$\n同时提取出奇数部分的一个公共旋转因子：\n$$ \\begin{aligned} X[k] \u0026= \\sum_{m=0}^{N/2-1} x_{even}(m) \\cdot W_N^{k \\cdot 2m} + W_N^k \\sum_{m=0}^{N/2-1} x_{odd}(m) \\cdot W_N^{k \\cdot (2m)}\\\\ \u0026=\\sum_{m=0}^{N/2-1} x_{even}(m) \\cdot W_{N/2}^{k \\cdot m} + W_N^k \\sum_{m=0}^{N/2-1} x_{odd}(m) \\cdot W_{N/2}^{km}\\\\ \u0026 k=1,2,3,…,N-1 \\end{aligned} $$\n定义\n$$ \\begin{aligned} X_{even}[k] \u0026= \\sum_{m=0}^{N/2-1} x_{even}(m) \\cdot W_{N/2}^{k \\cdot m} \\\\ X_{odd}[k] \u0026= \\sum_{m=0}^{N/2-1} x_{odd}(m) \\cdot W_{N/2}^{km} \\end{aligned} $$\n那么\n$$ \\begin{aligned} X[k] = X_{even}[k] + W_N^k X_{odd}[k] \u0026 , \u0026 k=0,1,2,…,N-1\\\\ \\end{aligned} $$\n现在 $k$ 比 $m$ 要多一倍的取值范围，如果把 $k$ 也取一半，\n$$ \\begin{aligned} X[k] \u0026= X_{even}[k] + W_N^k X_{odd}[k] \u0026 \u0026 k=0,1,2,…,N/2-1\\\\ X[k+N/2] \u0026= X_{even}[k+N/2] + W_N^{k+N/2} X_{odd}[k+N/2] \u0026 \u0026 k=0,1,2,…,N/2-1\\\\ \\end{aligned} $$\n依据旋转因子的周期性和对称性（这里可以展开代入一下），后半部分又可以写为\n$$ \\begin{aligned} X[k+N/2] \u0026= X_{even}[k] - W_N^{k} X_{odd}[k] \u0026 \u0026 k=0,1,2,…,N/2-1 \\end{aligned} $$\n所以原始序列可以被分解为 2 个部分，前 $N/2$ 部分是偶数部分加奇数部分（乘以一个旋转因子），后 $N/2$ 部分是偶数部分减去奇数部分（乘以一个旋转因子）。\n还记得前面小节提到的共轭对称性吗？也是只需要算一半频率就可以求出另一半频率，这里实际上也是暗含了这种性质。\n但是这里我们还可以继续进行分解，比如偶数部分又可以拆分为两个部分的和\n$$ \\begin{aligned} X_{even}[k] \u0026= \\sum_{m=0}^{N/2-1} x_{even}(m) \\cdot W_{N/2}^{k \\cdot m} \u0026 \u0026 k=0,1,2,…,N/2-1\\\\ X_{even}[k] \u0026= \\sum_{m=0}^{N/4-1} x_{even-even}(m) \\cdot W_{N/4}^{k \\cdot m} \\\\ \u0026+ W_{N/2}^{k} \\sum_{m=0}^{N/4-1} x_{even-odd}(m) \\cdot W_{N/4}^{k \\cdot m} \u0026 \u0026 k=0,1,2,…,N/2-1 \\end{aligned} $$\n以此类推：\n$$ \\begin{aligned} X_{even}[k] \u0026= X_{even-even}(k) + W_{N/2}^{k} X_{even-odd}(k) \u0026 \u0026 k=0,1,2,…,N/4-1\\\\ X_{even-even}[k] \u0026= X_{even-even-odd}(k) + W_{N/4}^{k} X_{even-even-odd}(k) \u0026 \u0026 k=0,1,2,…,N/8-1 \\end{aligned} $$\n可以不断进行递归，最终在 2 个值的时候，只有 1 个偶数和 1 个奇数。\n最后在只剩 1 个值的这一层的时候，直接返回值本身即可，因为此时没有奇数序列：\n$$ X_{\\text{final-even-index}} = x_{\\text{final-even-index}} $$\n最终的结果就符合上面的推导。\n实际上我们算一下 2 点的 DFT 就知道，就是一个加法和一个减法。\n比如 $[x0, x1]$ 两个点进行 DFT，\n$$ \\begin{align} X_0 \u0026= x_0 \\cdot W_2^{0\\cdot0} + x_1 \\cdot W_2^{0\\cdot1} = x_0 \\cdot 1 + x_1 \\cdot 1 \u0026= x_0 + x_1\\\\ X_1 \u0026= x_0 \\cdot W_2^{1\\cdot0} + x_1 \\cdot W_2^{1\\cdot1} = x_0 \\cdot 1 + x_1 \\cdot (-1) \u0026= x_0 - x_1 \\end{align} $$\n3.4 位反转重排 对于 8 个数的 FFT，按照下标序号分组的话：\n第一层：\n0 2 4 6 / 1 3 5 7 第二层：\n0 4 / 2 6 / 1 5 / 3 7 第三层：\n0 / 4 / 2 / 6 / 1 / 5 / 3 / 7 8个数可以用 3 个 bit 来表示，仔细观察会发现，第一层是通过最低位的奇偶性来分层的，相同的分在一组；第二层是第二位的奇偶性来分组；最后一层是第高位的奇偶性来分组。\n如果我们把位反转：\n0 -\u003e 000 -\u003e 000 -\u003e 0 1 -\u003e 001 -\u003e 100 -\u003e 4 2 -\u003e 010 -\u003e 010 -\u003e 2 3 -\u003e 011 -\u003e 110 -\u003e 6 4 -\u003e 100 -\u003e 001 -\u003e 1 5 -\u003e 101 -\u003e 101 -\u003e 5 6 -\u003e 110 -\u003e 011 -\u003e 3 7 -\u003e 111 -\u003e 111 -\u003e 7 通过重排 bit ，获得在内存中的连续块，正好满足迭代 FFT 的计算顺序。\n不过为了便于理解，我们后续的代码编写采用递归方式编写，不会进行该操作。\n3.5 算法复杂度分析 在每一层合并时，需要做 $N$ 次额外的“蝶形运算”（复加法 + 旋转因子乘法）。\n每一层根据奇偶性细分一半，所以总共有 $\\log_{2}{N}$ 层。\n综上，复杂度为：\n$$ \\mathcal{O}(N \\log N) $$\n3.6 IFFT $$ x[n] = \\frac{1}{N} \\sum_{k=0}^{N-1} X[k] e^{j \\frac{2\\pi}{N} kn}, \\quad n=0,1,\\dots,N-1 $$\n可以表示为：\n$$ \\begin{aligned} x[n] \u0026= \\frac{1}{N} (\\sum_{k=0}^{N-1} (X[k])^{\\ast} (e^{j \\frac{2\\pi}{N} kn})^{\\ast})^{\\ast}\\\\ \u0026= \\frac{1}{N} (\\sum_{k=0}^{N-1} (X[k])^{\\ast} e^{ -j \\frac{2\\pi}{N} kn})^{\\ast}\\\\ \u0026= \\frac{1}{N} (\\text{FFT}((X[k])^{\\ast}))^{\\ast} \\end{aligned} $$\n如果用 Python 可以表示为：\nx = np.conj(np.fft.fft(np.conj(X))) / N 这里注意的一点是，如果输入序列是实数，那么 IFFT 返回只有实部，所以虚数可以不取。\n3.7 FFT Python Code 假定输入序列是 $N = 2^{m}$。\n有如下代码：\nimport numpy as np def fft(x): N = len(x) if N \u003c= 1: return x X_even = fft(x[0::2]) X_odd = fft(x[1::2]) X = [0] * N for k in range(N//2): t = np.exp(-2j * np.pi * k / N) * X_odd[k] X[k] = X_even[k] + t X[k + N//2] = X_even[k] - t return X def ifft(X): N = len(X) x_time = np.conj(fft(np.conj(X))) / N return x_time if __name__ == \"__main__\": x = [1,t(x) print(\"FFT:\") for k, v in enumerate(X): print(f\"X[{k:2d}] = {v.real:8.2f} + {v.imag:8.2f}j\") # IFFT x_rec = ifft(X) print(\"\\nIFFT:\") for n, v in enumerate(x_rec): print(f\"x[{n:2d}] = {v.real:8.2f} + {v.imag:8.2f}j\") 2, 3, 4, 5, 6, 7, 8] print(\"x[n]: \", x, \"\\n\") # FFT X = ff 结果为：\nx[n]: [1, 2, 3, 4, 5, 6, 7, 8] FFT: X[ 0] = 36.00 + 0.00j X[ 1] = -4.00 + 9.66j X[ 2] = -4.00 + 4.00j X[ 3] = -4.00 + 1.66j X[ 4] = -4.00 + 0.00j X[ 5] = -4.00 + -1.66j X[ 6] = -4.00 + -4.00j X[ 7] = -4.00 + -9.66j IFFT: x[ 0] = 1.00 + -0.00j x[ 1] = 2.00 + 0.00j x[ 2] = 3.00 + -0.00j x[ 3] = 4.00 + 0.00j x[ 4] = 5.00 + -0.00j x[ 5] = 6.00 + -0.00j x[ 6] = 7.00 + 0.00j x[ 7] = 8.00 + -0.00j 3.8 2D FFT IFFT 2D DFT 的定义\n设输入矩阵 $f[m,n]$ 大小为 $M \\times N$，2D DFT 定义为：\n$$ F[k,l] = \\sum_{m=0}^{M-1}\\sum_{n=0}^{N-1} f[m,n] , e^{-j 2\\pi \\left(\\frac{k m}{M} + \\frac{l n}{N}\\right)} $$\n注意指数是行方向 + 列方向的和。\n因为指数是可分解的：\n$$ e^{-j 2\\pi (\\frac{k m}{M} + \\frac{l n}{N})} = e^{-j 2\\pi \\frac{k m}{M}} \\cdot e^{-j 2\\pi \\frac{l n}{N}} $$\n代入原式：\n$$ F[k,l] = \\sum_{m=0}^{M-1}\\sum_{n=0}^{N-1} f[m,n] , e^{-j 2\\pi \\frac{k m}{M}} , e^{-j 2\\pi \\frac{l n}{N}} $$\n这就意味着可以先对 n 做求和，再对 m 做求和：\n$$ F[k,l] = \\sum_{m=0}^{M-1} \\left[ e^{-j 2\\pi \\frac{k m}{M}} \\left( \\sum_{n=0}^{N-1} f[m,n] , e^{-j 2\\pi \\frac{l n}{N}} \\right) \\right] $$\n这也就是说，可以拆分为先对行做 FFT，得到结果后再在列方向做一次 FFT。（也可以先列后行反过来，不影响结果）\n算法时间复杂度上，DFT 的时间复杂度为：\n$$ \\mathcal{O}(M^2 N^2) $$\n拆分为 2 个 1D FFT 后为：\n$$ \\mathcal{O}(M N \\log N + N M \\log M) = \\mathcal{O}(M N (\\log M + \\log N)) $$\n这里给出 2D 的 FFT 代码：\nimport numpy as np from fft1d import fft, ifft def fft2d(matrix): temp = np.array([fft(row) for row in matrix]) temp = np.array([fft(col) for col in temp.T]).T return temp def ifft2d(matrix): temp = np.array([ifft(row) for row in matrix]) temp = np.array([ifft(col) for col in temp.T]).T return temp if __name__ == \"__main__\": x = np.array([ [1, 2, 3, 4], [5, 6, 7, 8], [9,10,11,12], [13,14,15,16] ], dtype=float) print(\"x[i,j]:\") print(x) # 2D FFT X = fft2d(x) print(\"\\n2D FFT X:\") print(np.round(X, 2)) # 2D IFFT x_rec = ifft2d(X) print(\"\\n2D IFFT x_rec:\") print(np.round(x_rec.real, 2)) 结果如下：\nx[i,j]: [[ 1. 2. 3. 4.] [ 5. 6. 7. 8.] [ 9. 10. 11. 12.] [13. 14. 15. 16.]] 2D FFT X: [[136. +0.j -8. +8.j -8. +0.j -8. -8.j] [-32.+32.j 0. +0.j 0. +0.j 0. +0.j] [-32. +0.j 0. +0.j 0. +0.j 0. +0.j] [-32.-32.j 0. +0.j 0. +0.j 0. +0.j]] 2D IFFT x_rec: [[ 1. 2. 3. 4.] [ 5. 6. 7. 8.] [ 9. 10. 11. 12.] [13. 14. 15. 16.]] 4. 参考致谢 花了几天时间终于写完了，感觉不仅 FFT 知识得到了进化，连带写公式都彻底熟悉了。\n特别感谢下列视频作者：\nDR_CAN1的傅里叶变换推导过程。 nksunmoon2的 FFT 过程讲解。 DR_CAN , 2018, 纯干货数学推导_傅里叶级数与傅里叶变换, https://www.bilibili.com/video/BV1Et411R78v ↩︎\nnksunmoon, 2022, 快速傅里叶变换原理, https://www.bilibili.com/video/BV1Ng411v7Dk ↩︎\n","wordCount":"5901","inLanguage":"zh","image":"https://cronrpc.github.io/cover.png","datePublished":"2025-08-31T12:18:21+08:00","dateModified":"2025-08-31T12:18:21+08:00","author":{"@type":"Person","name":"cronrpc"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://cronrpc.github.io/zh/posts/fourier-transform/"},"publisher":{"@type":"Organization","name":"cronrpc 中文","logo":{"@type":"ImageObject","url":"https://cronrpc.github.io/icons/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://cronrpc.github.io/zh/ accesskey=h title="cronrpc (Alt + H)"><img src=https://cronrpc.github.io/apple-touch-icon.png alt aria-label=logo height=35>cronrpc</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button><ul class=lang-switch><li>|</li><li><a href=https://cronrpc.github.io/en/ title=English aria-label=English>En</a></li></ul></div></div><ul id=menu><li><a href=https://cronrpc.github.io/zh/posts/ title=Posts><span>Posts</span></a></li><li><a href=https://cronrpc.github.io/zh/archives/ title=Archive><span>Archive</span></a></li><li><a href=https://cronrpc.github.io/zh/categories/ title=Categories><span>Categories</span></a></li><li><a href=https://cronrpc.github.io/zh/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://cronrpc.github.io/zh/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://cronrpc.github.io/zh/>主页</a>&nbsp;»&nbsp;<a href=https://cronrpc.github.io/zh/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">Fourier Transform</h1><div class=post-meta><span title='2025-08-31 12:18:21 +0800 +0800'>八月 31, 2025</span>&nbsp;·&nbsp;12 分钟&nbsp;·&nbsp;5901 字&nbsp;·&nbsp;cronrpc</div></header><figure class=entry-cover><img loading=eager src=https://cronrpc.github.io/cover.png alt></figure><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>目录</span></summary><div class=inner><nav id=TableOfContents><ul><li><a href=#1-傅里叶变换>1. 傅里叶变换</a><ul><li><a href=#11-函数的正交>1.1 函数的正交</a></li><li><a href=#12-三角函数正交性>1.2 三角函数正交性</a></li><li><a href=#13-周期为-2pi-的傅里叶级数展开>1.3 周期为 $2\pi$ 的傅里叶级数展开</a></li><li><a href=#14-周期为-2l-的傅里叶级数展开>1.4 周期为 $2L$ 的傅里叶级数展开</a></li><li><a href=#15-复数形式的傅里叶级数展开>1.5 复数形式的傅里叶级数展开</a></li><li><a href=#16-周期为-infin-的傅里叶级数展开>1.6 周期为 $\infin$ 的傅里叶级数展开</a></li><li><a href=#17-对称形式工程学派频率形式>1.7 对称形式、工程学派、频率形式</a></li></ul></li><li><a href=#2-离散傅里叶变换>2. 离散傅里叶变换</a><ul><li><a href=#21-离散傅立叶变换-dft>2.1 离散傅立叶变换 DFT</a></li><li><a href=#22-证明-dft-成立>2.2 证明 DFT 成立</a></li><li><a href=#23-共轭对称性>2.3 共轭对称性</a></li><li><a href=#24-奈奎斯特采样定理>2.4 奈奎斯特采样定理</a></li><li><a href=#25-周期性与负频率>2.5 周期性与负频率</a></li></ul></li><li><a href=#3-快速傅里叶变换>3. 快速傅里叶变换</a><ul><li><a href=#31-离散傅里叶变换的复杂度>3.1 离散傅里叶变换的复杂度</a></li><li><a href=#32-旋转因子的性质>3.2 旋转因子的性质</a></li><li><a href=#33-快速傅里叶变换推导式>3.3 快速傅里叶变换推导式</a></li><li><a href=#34-位反转重排>3.4 位反转重排</a></li><li><a href=#35-算法复杂度分析>3.5 算法复杂度分析</a></li><li><a href=#36-ifft>3.6 IFFT</a></li><li><a href=#37-fft-python-code>3.7 FFT Python Code</a></li><li><a href=#38-2d-fft-ifft>3.8 2D FFT IFFT</a></li></ul></li><li><a href=#4-参考致谢>4. 参考致谢</a></li></ul></nav></div></details></div><div class=post-content><h2 id=1-傅里叶变换>1. 傅里叶变换<a hidden class=anchor aria-hidden=true href=#1-傅里叶变换>#</a></h2><p>傅里叶变换起源于18世纪研究振动与热传导的问题。欧拉、达朗贝尔和伯努利提出用正弦波描述振动，奠定了思想基础。</p><p>19世纪初，法国数学家傅里叶在研究热传导时提出任何函数都可展开为正弦与余弦级数，这就是傅里叶级数，并逐渐发展为傅里叶变换。</p><hr><h3 id=11-函数的正交>1.1 函数的正交<a hidden class=anchor aria-hidden=true href=#11-函数的正交>#</a></h3><p>如果是向量的正交，就是向量的内积为$0$。</p><p>而函数的正交，我们以区间 $[-\pi,\pi]$ 为例；在 $[0,2\pi]$ 或任意长度为 $2\pi$ 的区间上结论相同</p><p>定义定积分：</p><p>$$
+\langle f,g\rangle:=\int_{-\pi}^{\pi} f(x)g(x) dx
+$$</p><p>表示函数的内积，它的值如果为$0$，我们就称这两个函数在这个周期内正交。</p><hr><h3 id=12-三角函数正交性>1.2 三角函数正交性<a hidden class=anchor aria-hidden=true href=#12-三角函数正交性>#</a></h3><p>有如下函数</p><p>$$
+1, cosx, sinx, cos2x, sin2x, cos3x, sin3x, &mldr;
+$$</p><p>其中 $1$ 也可以看成 $cos0x$ 。</p><p>首先，我们知道，对于任何非零整数 $k$，都有</p><p>$$
+\begin{align}
+\int_{-\pi}^{\pi}\cos kxdx & =0\\
+\int_{-\pi}^{\pi}\sin kxdx & =0
+\end{align}
+$$</p><p>因为它们在完整周期上的积分为零。所以 $1$ 与上述其他三角函数都是正交的。</p><p>现在讨论三角函数之间的三种情况：</p><ol><li>$\cos mx$ 与 $\cos nx$ 的正交性</li></ol><p>若 $m\neq n$ 并且 $m\neq 0, n\neq 0$</p><p>$$
+\begin{align*}
+\int_{-\pi}^{\pi}\cos mx\cos nxdx
+&=\tfrac12\int_{-\pi}^{\pi}\big[\cos(m-n)x+\cos(m+n)x\big]dx \\
+&=0
+\end{align*}
+$$</p><ol start=2><li>$\sin mx$ 与 $\sin nx$ 的正交性</li></ol><p>若 $m\neq n$ 并且 $m\neq 0, n\neq 0$</p><p>$$
+\begin{align*}
+\int_{-\pi}^{\pi}\sin mx\sin nxdx
+&=\tfrac12\int_{-\pi}^{\pi}\big[\cos(m-n)x-\cos(m+n)x\big]dx\\
+&=0
+\end{align*}
+$$</p><ol start=3><li>$\sin mx$ 与 $\cos nx$ 互相正交</li></ol><p>若 $m\neq 0, n\neq 0$</p><p>$$
+\begin{align*}
+\int_{-\pi}^{\pi}\sin mx\cos nxdx
+&=\tfrac12\int_{-\pi}^{\pi}\big[\sin(m+n)x+\sin(m-n)x\big]dx\\
+&=0
+\end{align*}
+$$</p><p>所以上述任意三角函数之间，都是正交的。</p><p>现在来计算一下，与自身内积的结果：</p><p>$$
+\int_{-\pi}^{\pi}\cos^2 nxdx
+=\tfrac12\int_{-\pi}^{\pi}\big[1+\cos(2n x)\big]dx
+=\tfrac12\big[2\pi+0\big]=\pi.
+$$</p><p>$$
+\int_{-\pi}^{\pi}\sin^2 nxdx
+=\tfrac12\int_{-\pi}^{\pi}\big[1-\cos(2n x)\big]dx
+=\tfrac12\big[2\pi-0\big]=\pi.
+$$</p><p>$$
+\int_{-\pi}^{\pi} 1\cdot 1,dx=2\pi
+$$</p><p>总结：</p><ol><li>任意$m\neq n$的三角函数之间正交。</li><li>三角函数在 $[-\pi,\pi]$ 周期的内积是 $\pi$</li><li>$1$ 在 $[-\pi,\pi]$ 周期的内积是 $2\pi$</li></ol><hr><h3 id=13-周期为-2pi-的傅里叶级数展开>1.3 周期为 $2\pi$ 的傅里叶级数展开<a hidden class=anchor aria-hidden=true href=#13-周期为-2pi-的傅里叶级数展开>#</a></h3><p>考虑一个周期函数，它的周期为$T = 2\pi$，即满足$f(x)=f(x+2\pi)$。</p><p>那么它可以表示为三角级数的和：</p><p>$$
+\begin{align}
+f(x) & = \sum_{n=0}^{\infin}{a_n \cos{nx}}+\sum_{n=0}^{\infin}{b_n \sin{nx}} \\
+& = a_0 + \sum_{n=1}^{\infin}{a_n \cos{nx}}+\sum_{n=1}^{\infin}{b_n \sin{nx}}
+\end{align}
+$$</p><p>如何求出每个 $a_n$ 的值？可以利用正交性来求。</p><p>在周期内进行内积，左右同时乘以 $1$ 并积分：</p><p>$$
+\begin{align}
+\int_{-\pi}^{\pi}{1 \cdot f(x) dx} &= \int_{-\pi}^{\pi}{a_0 dx} + \int_{-\pi}^{\pi}{\sum_{n=1}^{\infin}{a_n \cos{nx} dx}} + \int_{-\pi}^{\pi}{\sum_{n=1}^{\infin}{b_n \sin{nx} dx}}
+\end{align}
+$$</p><p>由于三角函数周期性，后面的三角函数都是积分结果都是 $0$，所以有：</p><p>$$
+\begin{align}
+\int_{-\pi}^{\pi}{f(x) dx} &= 2 \pi a_0 \\
+a_0 &= \frac{1}{2\pi} \int_{-\pi}^{\pi}{f(x) dx}
+\end{align}
+$$</p><p>注意，这里有的教科书上，是令</p><p>$$
+\begin{align}
+a_0 &= \frac{1}{\pi} \int_{-\pi}^{\pi}{f(x) dx}
+\end{align}
+$$</p><p>然后在公式阶段使用的是：</p><p>$$
+\begin{align}
+f(x) & = \frac{a_0}{2} + \sum_{n=1}^{\infin}{(a_n \cos{nx}+ b_n \sin{nx})}
+\end{align}
+$$</p><p>它们只是定义习惯，实际上没啥区别。我们后面采用这个定义的方式。</p><p>接下来求 $a_n$，依然是同时乘以对应的三角函数然后在周期内进行积分，假设我们要求的是 $n=m$ 时的 $a_m$，依据三角函数正交性：</p><p>$$
+\begin{align*}
+\int_{-\pi}^{\pi}{f(x) \cos{mx} dx}
+=& \int_{-\pi}^{\pi}{a_0 \cos{mx} dx} \\
+&+ \int_{-\pi}^{\pi}{\sum_{n=1}^{\infin}{a_n \cos{nx} \cos{mx} dx}} \\
+&+ \int_{-\pi}^{\pi}{\sum_{n=1}^{\infin}{b_n \sin{nx} \cos{mx} dx}} \\
+=& 0 + \int_{-\pi}^{\pi}{a_m \cos^2{mx}dx} + 0 \\
+=& a_m \pi
+\end{align*}
+$$</p><p>所以有：</p><p>$$
+\begin{align}
+a_n = \frac{1}{\pi}\int_{-\pi}^{\pi}{f(x) \cos{nx} dx}
+\end{align}
+$$</p><p>同理 $b_n$ 也可以求出：</p><p>$$
+\begin{align}
+b_n = \frac{1}{\pi}\int_{-\pi}^{\pi}{f(x) \sin{nx} dx}
+\end{align}
+$$</p><p>最后，结论如下：</p><p>一个周期为 $2\pi$的函数 $f(x)$，可以通过三角函数展开：</p><p>$$
+\begin{align}
+f(x) & = \frac{a_0}{2} + \sum_{n=1}^{\infin}{a_n \cos{nx}} + \sum_{n=1}^{\infin}{b_n \sin{nx}}
+\end{align}
+$$</p><p>其中：</p><p>$$
+\begin{align}
+a_0 &= \frac{1}{\pi} \int_{-\pi}^{\pi}{f(x) dx} \\
+a_n &= \frac{1}{\pi}\int_{-\pi}^{\pi}{f(x) \cos{nx} dx} \\
+b_n &= \frac{1}{\pi}\int_{-\pi}^{\pi}{f(x) \sin{nx} dx}
+\end{align}
+$$</p><hr><h3 id=14-周期为-2l-的傅里叶级数展开>1.4 周期为 $2L$ 的傅里叶级数展开<a hidden class=anchor aria-hidden=true href=#14-周期为-2l-的傅里叶级数展开>#</a></h3><p>上一小节探讨的是在 $2\pi$ 为周期的函数上的三角级数展开，而我们希望可以在任意周期上进行展开。</p><p>设原始函数 $f(t)$ 的周期是 $[-L, L]$，如果我们希望一个中间变量 $x$ 的周期是 $[-\pi, \pi]$，那么就可以令：</p><p>$$
+\begin{align}
+x &= \frac{\pi}{L}t \\
+t &= \frac{L}{\pi}x
+\end{align}
+$$</p><p>此时有，</p><p>$$
+f(t) = f(\frac{L}{\pi}x) \overset{\triangle}{=} g(x)
+$$</p><p>根据在前面的推导中有：</p><p>$$
+\begin{align}
+g(x) & = \frac{a_0}{2} + \sum_{n=1}^{\infin}{a_n \cos{nx}} + \sum_{n=1}^{\infin}{b_n \sin{nx}}\\
+a_0 &= \frac{1}{\pi} \int_{-\pi}^{\pi}{g(x) dx} \\
+a_n &= \frac{1}{\pi}\int_{-\pi}^{\pi}{g(x) \cos{nx} dx} \\
+b_n &= \frac{1}{\pi}\int_{-\pi}^{\pi}{g(x) \sin{nx} dx}
+\end{align}
+$$</p><p>统统做如下的替换，</p><p>$$
+\begin{align}
+x &= \frac{\pi}{L}t\\
+\Rightarrow dx &= \frac{\pi}{L}dt
+\end{align}
+$$</p><p>以及</p><p>$$
+nx = n\frac{\pi}{L}t = (\frac{n\pi}{L})t
+$$</p><p>于是有，</p><p>$$
+\begin{align}
+f(t) & = \frac{a_0}{2} + \sum_{n=1}^{\infin}{a_n \cos{\frac{n\pi}{L}t}} + \sum_{n=1}^{\infin}{b_n \sin{\frac{n\pi}{L}t}}\\
+a_0 &= \frac{1}{\pi} \int_{-\pi}^{\pi}{g(x) dx}\\
+&= \frac{1}{\pi} \int_{-\pi}^{\pi}{f(\frac{L}{\pi}x) dx}\\
+&= \frac{1}{\pi} \int_{-L}^{L}{f(t) \frac{\pi}{L} dt} \\
+&= \frac{1}{L} \int_{-L}^{L}{f(t) dt}
+\end{align}
+$$</p><p>同理，
+$$
+\begin{align}
+a_n &= \frac{1}{L}\int_{-L}^{L}{f(t) \cos{\frac{n\pi}{L}t} dt} \\
+b_n &= \frac{1}{L}\int_{-L}^{L}{f(t) \sin{\frac{n\pi}{L}t} dt}
+\end{align}
+$$</p><p>在工程领域中，习惯从 $0$ 开始积分，记</p><p>$$
+T=2L\\
+\\
+\omega = \frac{\pi}{L} = \frac{2\pi}{T}
+$$</p><p>于是三角级数展开又可以写为：</p><p>$$
+\begin{align}
+f(t) & = \frac{a_0}{2} + \sum_{n=1}^{\infin}{a_n \cos{n\omega t}} + \sum_{n=1}^{\infin}{b_n \sin{n\omega t}}\\
+a_0 &= \frac{2}{T} \int_{0}^{T}{f(t) dt}\\
+a_n &= \frac{2}{T}\int_{0}^{T}{f(t) \cos{n\omega t} dt} \\
+b_n &= \frac{2}{T}\int_{0}^{T}{f(t) \sin{n\omega t} dt}
+\end{align}
+$$</p><hr><h3 id=15-复数形式的傅里叶级数展开>1.5 复数形式的傅里叶级数展开<a hidden class=anchor aria-hidden=true href=#15-复数形式的傅里叶级数展开>#</a></h3><p>根据欧拉公式</p><p>$$
+e^{i\theta}=\cos\theta+i\sin\theta
+$$</p><p>得到</p><p>$$
+\begin{align}
+\cos\theta&=\frac{1}{2}(e^{i\theta}+e^{-i\theta})\\
+\sin\theta&=-\frac{1}{2}i(e^{i\theta}-e^{-i\theta})
+\end{align}
+$$</p><p>代入到公式中得到：</p><p>$$
+\begin{align}
+f(t) & = \frac{a_0}{2} + \sum_{n=1}^{\infin}{a_n \cos{n\omega t}} + \sum_{n=1}^{\infin}{b_n \sin{n\omega t}}\\
+&=\frac{a_0}{2} + \sum_{n=1}^{\infin}{[a_n\frac{1}{2}(e^{in\omega t}+e^{-in\omega t}) - \frac{1}{2}ib_n(e^{in\omega t}-e^{-in\omega t})]}\\
+&=\frac{a_0}{2} + \sum_{n=1}^{\infin}{\frac{a_n-ib_n}{2}e^{in\omega t}} + \sum_{n=1}^{\infin}{\frac{a_n+ib_n}{2}e^{-in\omega t}}\\
+&=\frac{a_0}{2}e^{0}+\sum_{n=1}^{\infin}{\frac{a_n-ib_n}{2}e^{in\omega t}} + \sum_{n=-\infin}^{-1}{\frac{a_{-n}+ib_{-n}}{2}e^{in\omega t}}\\
+&=\sum_{-\infin}^{\infin}{c_n e^{in\omega t}}
+\end{align}
+$$</p><p>其中 $c_n$ 定义为：</p><p>$$
+c_n =
+\begin{cases}
+\frac{a_0}{2}, & n = 0\\
+\frac{a_n-ib_n}{2}, & n = 1,2,3,4,&mldr;\\
+\frac{a_{-n}+ib_{-n}}{2}, & n = -1,-2,-3,-4,&mldr;
+\end{cases}
+$$</p><p>现在具体计算一下 $c_n$，</p><p>$$
+\begin{align}
+\underset{n=1,2,3,&mldr;}{c_n} &= \frac{1}{2}[\frac{2}{T}\int_{0}^{T}{f(t) \cos{n\omega t} dt} -i\frac{2}{T}\int_{0}^{T}{f(t) \sin{n\omega t} dt}]\\
+&= \frac{1}{T}\int_{0}^{T}{f(t) (\cos{n\omega t}-i\sin{n\omega t}) dt}\\
+&= \frac{1}{T}\int_{0}^{T}{f(t) (\cos{(-n\omega t)} + i\sin{(-n\omega t)}) dt}\\
+&= \frac{1}{T}\int_{0}^{T}{f(t) e^{-in\omega t} dt}
+\end{align}
+$$</p><p>$$
+\begin{align}
+\underset{n=-1,-2,-3,&mldr;}{c_n} &= \frac{1}{2}[\frac{2}{T}\int_{0}^{T}{f(t) \cos{(-n\omega t)} dt} +i\frac{2}{T}\int_{0}^{T}{f(t) \sin{(-n\omega t)} dt}]\\
+&= \frac{1}{T}\int_{0}^{T}{f(t) (\cos{(-n\omega t)} + i\sin{(-n\omega t)}) dt}\\
+&= \frac{1}{T}\int_{0}^{T}{f(t) e^{-in\omega t} dt}
+\end{align}
+$$</p><p>$$
+\begin{align}
+\underset{n=0}{c_n} &= \frac{1}{2}[\frac{2}{T} \int_{0}^{T}{f(t) dt}]\\
+&= \frac{1}{T} \int_{0}^{T}{f(t) dt}\\
+&= \frac{1}{T} \int_{0}^{T}{f(t) e^{-i0\omega t} dt}\\
+&= \frac{1}{T} \int_{0}^{T}{f(t) e^{-in\omega t} dt}
+\end{align}
+$$</p><p>所以 $c_n$ 都可以写为一样的形式：</p><p>$$
+c_n = \frac{1}{T} \int_{0}^{T}{f(t) e^{-in\omega t} dt}
+$$</p><p>总结：</p><p>复数形式的傅里叶变换中，对于周期函数 $f(t) = f(t+T)$，有</p><p>$$
+\begin{align}
+f(t) &= \sum_{-\infin}^{\infin}{c_n e^{in\omega t}} \\
+c_n &= \frac{1}{T} \int_{0}^{T}{f(t) e^{-in\omega t} dt}
+\end{align}
+$$</p><hr><h3 id=16-周期为-infin-的傅里叶级数展开>1.6 周期为 $\infin$ 的傅里叶级数展开<a hidden class=anchor aria-hidden=true href=#16-周期为-infin-的傅里叶级数展开>#</a></h3><p>周期为 $T$ 的函数</p><p>$$
+f_T(t) = f_T(t+T)
+$$</p><p>可以被解析为下列表示</p><ul><li>这里用 $\omega_0$ 表示基频率</li></ul><p>$$
+\begin{align}
+f_T(t) &= \sum_{-\infin}^{\infin}{c_n e^{in\omega_0 t}} \\
+c_n &= \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}}{f_T(t) e^{-in\omega_0 t} dt}\\
+\omega_0 &= \frac{2\pi}{T}
+\end{align}
+$$</p><p>现在的问题是，如果一个非周期函数，那么该怎么处理？</p><p>不是周期函数，换个角度来说，就是周期无穷大，就是无穷大之后才会重复。</p><p>我们直接把 $c_n$ 代入回去，同时令 $f(t) = \underset{T \to \infin}{f_T}$，</p><p>$$
+\begin{align}
+f(t) &= \sum_{-\infin}^{\infin}{\frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}}{f(t) e^{-in\omega_0 t} dt} e^{in\omega_0 t}}\\
+&= \sum_{-\infin}^{\infin}{\frac{\omega_0}{2\pi} \int_{-\infin}^{\infin}{f(t) e^{-in\omega_0 t} dt} e^{in\omega_0 t}}
+\end{align}
+$$</p><p>令 $\omega_0 = d\omega$，那么 $n\omega_0 = \omega$，所以</p><p>$$
+\begin{align}
+f(t) &= \sum_{-\infin}^{\infin}{\frac{\omega_0}{2\pi} \int_{-\infin}^{\infin}{f(t) e^{-in\omega_0 t} dt} e^{in\omega_0 t}}\\
+&= \int_{-\infin}^{\infin}{\frac{1}{2\pi}\int_{-\infin}^{\infin}{f(t) e^{-iomega t} dt} e^{i\omega t} d\omega}\\
+&= \int_{-\infin}^{\infin}{\frac{1}{2\pi} \left( \int_{-\infin}^{\infin}{f(t) e^{-i\omega t} dt} \right) e^{i\omega t} d\omega}\\
+&= \frac{1}{2\pi} \int_{-\infin}^{\infin}{\left( \int_{-\infin}^{\infin}{f(t) e^{-i\omega t} dt} \right) e^{i\omega t} d\omega}
+\end{align}
+$$</p><p>这里定义 $F(\omega)$，就得到傅里叶变换的最终形式</p><p>$$
+\begin{align}
+F(\omega) &= \int_{-\infin}^{\infin}{f(t) e^{-i\omega t} dt}
+\end{align}
+$$</p><p>而逆变换是</p><p>$$
+\begin{align}
+f(t) &= \frac{1}{2\pi} \int_{-\infin}^{\infin}{ F(\omega) e^{i\omega t} d\omega}
+\end{align}
+$$</p><hr><h3 id=17-对称形式工程学派频率形式>1.7 对称形式、工程学派、频率形式<a hidden class=anchor aria-hidden=true href=#17-对称形式工程学派频率形式>#</a></h3><p>在上面的傅里叶变换中，我们把 $2\pi$ 放在逆变换中，实际上还有下列的形式：</p><ol><li>对称形式（常用在数学里），把 $2\pi$ 均分到正变换和逆变换：</li></ol><p>$$
+F(\omega) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} f(t)e^{-i\omega t} dt
+$$</p><p>$$
+f(t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} F(\omega)e^{i\omega t} d\omega
+$$</p><ol start=2><li>工程学派（常见于电气工程/信号处理），把 $2\pi$ 放在正变换中，逆变换没有 $2\pi$：</li></ol><p>$$
+F(\omega) = \frac{1}{2\pi}\int_{-\infty}^{\infty} f(t)e^{-i\omega t} dt
+$$</p><p>$$
+f(t) = \int_{-\infty}^{\infty} F(\omega)e^{i\omega t} d\omega
+$$</p><ol start=3><li>周期形式（用频率 $f$ 而不是角频率 $\omega$），如果令 $\omega = 2\pi f$，就可以写成：</li></ol><p>$$
+F(f) = \int_{-\infty}^{\infty} f(t)e^{-i 2\pi f t} dt
+$$</p><p>$$
+f(t) = \int_{-\infty}^{\infty} F(f)e^{i 2\pi f t} df
+$$</p><hr><h2 id=2-离散傅里叶变换>2. 离散傅里叶变换<a hidden class=anchor aria-hidden=true href=#2-离散傅里叶变换>#</a></h2><p>在前面的讨论中，我们涉及到是连续函数和无穷频率。</p><p>虽然前面已经学习了傅里叶变换的积分形式，但是实际工程中的最大问题是工程中的采样点不是连续函数。通常是离散的点。</p><hr><h3 id=21-离散傅立叶变换-dft>2.1 离散傅立叶变换 DFT<a hidden class=anchor aria-hidden=true href=#21-离散傅立叶变换-dft>#</a></h3><p>对于一个离散的采样点，比如 N 个点的序列 $x[n]$，直接认为它的周期就是 N。</p><p>已知周期为 T 的傅里叶变换形式是：</p><p>$$
+\begin{align}
+c_n &= \frac{1}{T}\int_{0}^{T}{f(t) e^{-in\omega t} dt}\\
+f(t) &= \sum_{n=-\infin}^{\infin}{c_n e^{in\omega t}}
+\end{align}
+$$</p><p>现在令 $\omega = \frac{2\pi}{N}$，$T \to N$，同时把 $\frac{1}{T} \to \frac{1}{N}$ 这个常量移动到逆变换里面。同时原本的 n 用 k 表示，原本的 t 用序号 n 表示。</p><p>$$
+\begin{align}
+X[k] &=\sum_{n=0}^{N-1}{x[n] \cdot e^{-j\frac{2\pi}{N}kn}}\\
+x[n] &= \frac{1}{N} \sum_{k=0}^{N-1}{X[k]\cdot e^{j\frac{2\pi}{N}kn}}
+\end{align}
+$$</p><p>其中 $k=0,1,2,&mldr;,N-1$</p><hr><h3 id=22-证明-dft-成立>2.2 证明 DFT 成立<a hidden class=anchor aria-hidden=true href=#22-证明-dft-成立>#</a></h3><p>把 $X[k]$ 代入逆变换公式：</p><p>$$
+\begin{aligned}
+x[n]
+&= \frac{1}{N}\sum_{k=0}^{N-1} X[k],e^{j\frac{2\pi}{N}kn} \\
+&= \frac{1}{N}\sum_{k=0}^{N-1}\left(\sum_{m=0}^{N-1} x[m],e^{-j\frac{2\pi}{N}km}\right)e^{j\frac{2\pi}{N}kn} \\
+&= \frac{1}{N}\sum_{m=0}^{N-1} x[m]\sum_{k=0}^{N-1} e^{j\frac{2\pi}{N}k(n-m)}
+\end{aligned}
+$$</p><p>考虑内层和</p><p>$$
+S_{n-m}=\sum_{k=0}^{N-1} e^{j\frac{2\pi}{N}k(n-m)}
+$$</p><p>令 $r=n-m$（整数）。若 $r\equiv 0\pmod N$（即 $n=m$），则每项都是 $1$，于是</p><p>$$
+S_{0}=N
+$$</p><p>若 $r\not\equiv 0\pmod N$，则这是一个首项为 $1$、公比 $q=e^{j\frac{2\pi}{N}r}\neq1$ 的几何级数，</p><p>$$
+S_{r}=\frac{1-q^{N}}{1-q}=\frac{1-e^{j2\pi r}}{1-q}=0
+$$</p><p>因为 $e^{j2\pi r}=1$。因此</p><p>$$
+S_{n-m}=
+\begin{cases}
+N,& n=m,\\
+0,& n\ne m.
+\end{cases}
+$$</p><p>把它代回去：</p><p>$$
+x[n]=\frac{1}{N}\sum_{m=0}^{N-1} x[m]S_{n-m}=\frac{1}{N}\big(x[n]\cdot N\big)=x[n].
+$$</p><p>这就证明了逆变换确实把由前向变换得到的 $X[k]$ 恢复回原序列 $x[n]$。换句话说，复指数在这组离散点上是正交的，且</p><p>$$
+\frac{1}{N}\sum_{k=0}^{N-1} e^{j\frac{2\pi}{N}k(n-m)}=\delta_{n,m}
+$$</p><hr><h3 id=23-共轭对称性>2.3 共轭对称性<a hidden class=anchor aria-hidden=true href=#23-共轭对称性>#</a></h3><p>$$
+\begin{align}
+X[k] &=\sum_{n=0}^{N-1}{x[n] \cdot e^{-j\frac{2\pi}{N}kn}}
+\end{align}
+$$</p><p>$X[k]$ 的共轭值为：</p><p>$$
+\begin{aligned}
+X^{\ast}[k]
+&=\left( \sum_{n=0}^{N-1}{x[n] \cdot e^{-j\frac{2\pi}{N}kn}} \right)^{\ast}
+\end{aligned}
+$$</p><p>由于 $x[n]$ 是实数，所以</p><p>$$
+\begin{aligned}
+X^{\ast}[k]
+&=\sum_{n=0}^{N-1}{x[n] \cdot (e^{-j\frac{2\pi}{N}kn}})^{\ast}\\
+&=\sum_{n=0}^{N-1}{x[n] \cdot (e^{j\frac{2\pi}{N}kn}})\\
+&=\sum_{n=0}^{N-1}{x[n] \cdot (e^{j\frac{2\pi}{N}(kn-Nn)}})\\
+&=\sum_{n=0}^{N-1}{x[n] \cdot (e^{-j\frac{2\pi}{N}(N-k)n}})\\
+&=X[N-k]
+\end{aligned}
+$$</p><p>结论：</p><p>如果 $x[n]$ 是实数序列，则有</p><p>$$
+X[k] = X^*[N-k], \quad k=1,2,\dots,N-1
+$$</p><p>也就是说，<strong>DFT 的频谱是共轭对称的</strong>。</p><p>还有一个有意思的结论，那就是当 N 是偶数的时候， $k = 0$ 和 $k = N/2$ 都只有实数部分的。</p><p>$$
+\begin{aligned}
+X[N/2] &= X^{\ast}[N-N/2] = N^{\ast}[N/2]\\
+&= \Re{(X[N/2])}
+\end{aligned}
+$$</p><hr><h3 id=24-奈奎斯特采样定理>2.4 奈奎斯特采样定理<a hidden class=anchor aria-hidden=true href=#24-奈奎斯特采样定理>#</a></h3><p>对长度为 $N$ 的序列 $x[n]$，其 DFT 是</p><p>$$
+X[k] = \sum_{n=0}^{N-1} x[n] e^{-j \frac{2\pi}{N}kn}, \quad k = 0,1,\dots,N-1
+$$</p><p>这里 $k$ 对应的是<strong>频率索引</strong>，实际频率为</p><p>$$
+f_k = \frac{k}{N} f_s
+$$</p><p>其中 $f_s$ 是采样率。</p><p>根据奈奎斯特采样定理：</p><ul><li>连续信号在采样率 $f_s$ 下，最大能无失真恢复的频率是 <strong>$f_s/2$</strong>（奈奎斯特频率）。</li><li>也就是说，$0 \leq f \leq f_s/2$ 才是“有效”区间。</li></ul><p>所以，<strong>DFT 给出的频率范围 $0 \leq f &lt; f_s$，其中一半其实是镜像频率</strong>。</p><p>这个结论实际上和前面的共轭对称性也是符合的，有一半的频率实际上是冗余的。</p><p>同时从信息的角度来说，$N$ 个实数可以通过 $\frac{N}{2}$ 个复数来恢复信息，所以也是合理的。</p><hr><h3 id=25-周期性与负频率>2.5 周期性与负频率<a hidden class=anchor aria-hidden=true href=#25-周期性与负频率>#</a></h3><p>离散傅里叶变换 (DFT) 在频率域上具有 <strong>周期性</strong>。其定义为</p><p>$$
+X[k] = \sum_{n=0}^{N-1} x[n] e^{-j\frac{2\pi}{N}kn}, \quad k=0,1,\dots,N-1
+$$</p><p>如果将频率索引扩展到任意整数 $m$，则有</p><p>$$
+X[k+mN] = \sum_{n=0}^{N-1} x[n] e^{-j\frac{2\pi}{N}(k+mN)n}
+= \sum_{n=0}^{N-1} x[n] e^{-j\frac{2\pi}{N}kn} e^{-j2\pi mn}
+$$</p><p>由于 $e^{-j2\pi mn} = 1$，因此</p><p>$$
+X[k+mN] = X[k]
+$$</p><p>这表明 <strong>DFT 在频率索引上以 $N$ 为周期</strong>。换句话说，频谱在频率轴上是环形的，超过范围会自动折返。</p><p>虽然 DFT 的索引 $k$ 只定义在 $[0, N-1]$，但通过周期性，可以自然引入“负频率”的概念。具体地：</p><p>$$
+X[-k] = X[N-k]\\
+k=-1,-2,-3,&mldr;
+$$</p><p>结合前面的共轭对称性，可以发现一个有趣的现象：</p><p>$$
+X[-k] = X[N-k] = X^{\ast}[k]
+$$</p><p>即正负频率也呈现共轭对称性。</p><p>因此，原本的索引</p><p>$$
+k = 0, 1, 2, \dots, \tfrac{N}{2}-1, \tfrac{N}{2}, \tfrac{N}{2}+1, \dots, N-1
+$$</p><p>可以等价地写作</p><p>$$
+k = 0, 1, 2, \dots, \tfrac{N}{2}-1, \tfrac{N}{2}, -\tfrac{N}{2}+1, \dots, -2, -1
+$$</p><hr><h2 id=3-快速傅里叶变换>3. 快速傅里叶变换<a hidden class=anchor aria-hidden=true href=#3-快速傅里叶变换>#</a></h2><p>快速傅里叶变换（FFT）的思想最早可追溯到19世纪初。1805年，高斯在研究天体轨道时，已经提出过一种相当于 FFT 的高效算法，但他的工作仅以笔记形式保存，并未被广泛传播。之后一个多世纪里，离散傅里叶变换（DFT）仍以 $O(N^2)$ 的复杂度被直接计算。</p><p>直到1965年，IBM 的 James Cooley 与 Princeton 的 John Tukey 在研究数值天气预报时重新发现并系统化了这一方法，他们意识到可以通过分治与旋转因子对称性，大幅减少计算量。论文发表后引起轰动，使大规模频域分析首次成为现实。</p><p>有趣的是，FFT 并非“新算法”，而是对古老数学思想的复兴与推广。正是计算机硬件的兴起与实际需求的迫切，才让这项算法走出历史笔记，成为信号处理、通信、图像分析与科学计算中不可或缺的核心工具。</p><hr><h3 id=31-离散傅里叶变换的复杂度>3.1 离散傅里叶变换的复杂度<a hidden class=anchor aria-hidden=true href=#31-离散傅里叶变换的复杂度>#</a></h3><p>依据前面，离散傅里叶变换的定义为：</p><p>$$
+X[k] = \sum_{n=0}^{N-1} x[n] e^{-j \frac{2\pi}{N} kn}, \quad k=0,1,\dots,N-1
+$$</p><p>直接计算每个 $X[k]$ 需要 $N$ 次乘法以及 $N$ 项求和，总共有 $N$ 个 $k$，因此时间复杂度为：</p><p>$$
+\mathcal{O}(N^2)
+$$</p><p>当 $N$ 较大时，这样的复杂度难以接受。</p><p>快速傅里叶变换（FFT）通过利用对称性和递归分治思想，将复杂度降到：</p><p>$$
+\mathcal{O}(N \log N)
+$$</p><p>这也是其在信号处理、图像处理、数值计算等领域广泛应用的原因。</p><hr><h3 id=32-旋转因子的性质>3.2 旋转因子的性质<a hidden class=anchor aria-hidden=true href=#32-旋转因子的性质>#</a></h3><p>在 DFT 中，我们定义指数部分：</p><p>$$
+W_N = e^{-j \frac{2\pi}{N}}
+$$</p><p>它被称为 <strong>旋转因子 (Twiddle Factor)</strong>，于是</p><p>$$
+W_N^{kn} = e^{-j \frac{2\pi}{N}kn}
+$$</p><p>此时 DFT 公式可写为：</p><p>$$
+X[k] = \sum_{n=0}^{N-1} x[n] W_N^{kn}
+$$</p><p>旋转因子具有一些重要性质：</p><ol><li><strong>周期性</strong></li></ol><p>$$
+W_N^{a+N}
+= e^{-j \frac{2\pi}{N}(a+N)}
+= e^{-j \frac{2\pi}{N}(a)} e^{-j2\pi}
+= e^{-j \frac{2\pi}{N}(a)}
+= W_N^a
+$$</p><ol start=2><li><strong>对称性</strong></li></ol><p>$$
+W_N^{a+\frac{N}{2}}
+= e^{-j \frac{2\pi}{N}(a+\frac{N}{2})}
+= e^{-j \frac{2\pi}{N}(a)} e^{-j\pi}
+= - e^{-j \frac{2\pi}{N}(a)}
+= - W_N^a
+$$</p><ol start=3><li><strong>缩放性</strong></li></ol><p>$$
+W_N^{a}
+= e^{-j \frac{2\pi}{N}(a)}
+= e^{-j \frac{2\pi}{N/m}(a/m)}
+= W_{N/n}^{a/m}
+$$</p><p>这些性质可以使得计算量大大减少。</p><hr><h3 id=33-快速傅里叶变换推导式>3.3 快速傅里叶变换推导式<a hidden class=anchor aria-hidden=true href=#33-快速傅里叶变换推导式>#</a></h3><p>下面我们就来看看旋转因子的这些性质是如何被使用的。</p><p>设原始序列为 $x[n]$，长度为 $N$（假设 $N=2^m$ 为 2 的幂）。如果实际工程中遇到不满足 2 的幂的点，可以直接补零到 $N=2^m$ 长度，复原的时候截断后面的零即可。</p><p>我们还是先回到原来的公式：</p><p>$$
+X[k] = \sum_{n=0}^{N-1} x[n] W_N^{kn}
+$$</p><p>拆分成奇数部分和偶数部分</p><p>$$
+\begin{aligned}
+X[k] &= \sum_{m=0}^{N/2-1} x[2m] \cdot W_N^{k \cdot 2m}
++ \sum_{m=0}^{N/2-1} x[2m+1] \cdot W_N^{k \cdot (2m+1)}
+\\
+& k=1,2,3,&mldr;,N-1
+\end{aligned}
+$$</p><p>这里定义一个专门用来取奇偶的函数，</p><p>$$
+\begin{aligned}
+x_{even}(m)&=x(2m) & ,m=0,1,2,&mldr;,N/2 - 1\\
+x_{odd}(m)&=x(2m+1) & ,m=0,1,2,&mldr;,N/2 - 1
+\end{aligned}
+$$</p><p>同时提取出奇数部分的一个公共旋转因子：</p><p>$$
+\begin{aligned}
+X[k] &= \sum_{m=0}^{N/2-1} x_{even}(m) \cdot W_N^{k \cdot 2m} + W_N^k \sum_{m=0}^{N/2-1} x_{odd}(m) \cdot W_N^{k \cdot (2m)}\\
+&=\sum_{m=0}^{N/2-1} x_{even}(m) \cdot W_{N/2}^{k \cdot m} + W_N^k \sum_{m=0}^{N/2-1} x_{odd}(m) \cdot W_{N/2}^{km}\\
+& k=1,2,3,&mldr;,N-1
+\end{aligned}
+$$</p><p>定义</p><p>$$
+\begin{aligned}
+X_{even}[k] &= \sum_{m=0}^{N/2-1} x_{even}(m) \cdot W_{N/2}^{k \cdot m} \\
+X_{odd}[k] &= \sum_{m=0}^{N/2-1} x_{odd}(m) \cdot W_{N/2}^{km}
+\end{aligned}
+$$</p><p>那么</p><p>$$
+\begin{aligned}
+X[k] = X_{even}[k] + W_N^k X_{odd}[k] & , & k=0,1,2,&mldr;,N-1\\
+\end{aligned}
+$$</p><p>现在 $k$ 比 $m$ 要多一倍的取值范围，如果把 $k$ 也取一半，</p><p>$$
+\begin{aligned}
+X[k] &= X_{even}[k] + W_N^k X_{odd}[k] & & k=0,1,2,&mldr;,N/2-1\\
+X[k+N/2] &= X_{even}[k+N/2] + W_N^{k+N/2} X_{odd}[k+N/2] & & k=0,1,2,&mldr;,N/2-1\\
+\end{aligned}
+$$</p><p>依据旋转因子的周期性和对称性（这里可以展开代入一下），后半部分又可以写为</p><p>$$
+\begin{aligned}
+X[k+N/2] &= X_{even}[k] - W_N^{k} X_{odd}[k] & & k=0,1,2,&mldr;,N/2-1
+\end{aligned}
+$$</p><p>所以原始序列可以被分解为 2 个部分，前 $N/2$ 部分是偶数部分<strong>加</strong>奇数部分（乘以一个旋转因子），后 $N/2$ 部分是偶数部分<strong>减去</strong>奇数部分（乘以一个旋转因子）。</p><p>还记得前面小节提到的共轭对称性吗？也是只需要算一半频率就可以求出另一半频率，这里实际上也是暗含了这种性质。</p><p>但是这里我们还可以继续进行分解，比如偶数部分又可以拆分为两个部分的和</p><p>$$
+\begin{aligned}
+X_{even}[k] &= \sum_{m=0}^{N/2-1} x_{even}(m) \cdot W_{N/2}^{k \cdot m} & & k=0,1,2,&mldr;,N/2-1\\
+X_{even}[k] &= \sum_{m=0}^{N/4-1} x_{even-even}(m) \cdot W_{N/4}^{k \cdot m} \\
+&+ W_{N/2}^{k} \sum_{m=0}^{N/4-1} x_{even-odd}(m) \cdot W_{N/4}^{k \cdot m} & & k=0,1,2,&mldr;,N/2-1
+\end{aligned}
+$$</p><p>以此类推：</p><p>$$
+\begin{aligned}
+X_{even}[k] &= X_{even-even}(k) + W_{N/2}^{k} X_{even-odd}(k) & & k=0,1,2,&mldr;,N/4-1\\
+X_{even-even}[k] &= X_{even-even-odd}(k) + W_{N/4}^{k} X_{even-even-odd}(k) & & k=0,1,2,&mldr;,N/8-1
+\end{aligned}
+$$</p><p>可以不断进行递归，最终在 2 个值的时候，只有 1 个偶数和 1 个奇数。</p><p>最后在只剩 1 个值的这一层的时候，直接返回值本身即可，因为此时没有奇数序列：</p><p>$$
+X_{\text{final-even-index}} = x_{\text{final-even-index}}
+$$</p><p>最终的结果就符合上面的推导。</p><p>实际上我们算一下 2 点的 DFT 就知道，就是一个加法和一个减法。</p><p>比如 $[x0, x1]$ 两个点进行 DFT，</p><p>$$
+\begin{align}
+X_0 &= x_0 \cdot W_2^{0\cdot0} + x_1 \cdot W_2^{0\cdot1} = x_0 \cdot 1 + x_1 \cdot 1 &= x_0 + x_1\\
+X_1 &= x_0 \cdot W_2^{1\cdot0} + x_1 \cdot W_2^{1\cdot1} = x_0 \cdot 1 + x_1 \cdot (-1) &= x_0 - x_1
+\end{align}
+$$</p><hr><h3 id=34-位反转重排>3.4 位反转重排<a hidden class=anchor aria-hidden=true href=#34-位反转重排>#</a></h3><p>对于 8 个数的 FFT，按照下标序号分组的话：</p><p>第一层：</p><pre tabindex=0><code>0 2 4 6 / 1 3 5 7
+</code></pre><p>第二层：</p><pre tabindex=0><code>0 4 / 2 6 / 1 5 / 3 7
+</code></pre><p>第三层：</p><pre tabindex=0><code>0 / 4 / 2 / 6 / 1 / 5 / 3 / 7
+</code></pre><p>8个数可以用 3 个 bit 来表示，仔细观察会发现，第一层是通过最低位的奇偶性来分层的，相同的分在一组；第二层是第二位的奇偶性来分组；最后一层是第高位的奇偶性来分组。</p><p>如果我们把位反转：</p><pre tabindex=0><code>0 -&gt; 000 -&gt; 000 -&gt; 0
+1 -&gt; 001 -&gt; 100 -&gt; 4
+2 -&gt; 010 -&gt; 010 -&gt; 2
+3 -&gt; 011 -&gt; 110 -&gt; 6
+4 -&gt; 100 -&gt; 001 -&gt; 1
+5 -&gt; 101 -&gt; 101 -&gt; 5
+6 -&gt; 110 -&gt; 011 -&gt; 3
+7 -&gt; 111 -&gt; 111 -&gt; 7
+</code></pre><p>通过重排 bit ，获得在内存中的连续块，正好满足迭代 FFT 的计算顺序。</p><p>不过为了便于理解，我们后续的代码编写采用递归方式编写，不会进行该操作。</p><hr><h3 id=35-算法复杂度分析>3.5 算法复杂度分析<a hidden class=anchor aria-hidden=true href=#35-算法复杂度分析>#</a></h3><p>在每一层合并时，需要做 $N$ 次额外的“蝶形运算”（复加法 + 旋转因子乘法）。</p><p>每一层根据奇偶性细分一半，所以总共有 $\log_{2}{N}$ 层。</p><p>综上，复杂度为：</p><p>$$
+\mathcal{O}(N \log N)
+$$</p><hr><h3 id=36-ifft>3.6 IFFT<a hidden class=anchor aria-hidden=true href=#36-ifft>#</a></h3><p>$$
+x[n] = \frac{1}{N} \sum_{k=0}^{N-1} X[k] e^{j \frac{2\pi}{N} kn}, \quad n=0,1,\dots,N-1
+$$</p><p>可以表示为：</p><p>$$
+\begin{aligned}
+x[n] &= \frac{1}{N} (\sum_{k=0}^{N-1} (X[k])^{\ast} (e^{j \frac{2\pi}{N} kn})^{\ast})^{\ast}\\
+&= \frac{1}{N} (\sum_{k=0}^{N-1} (X[k])^{\ast} e^{ -j \frac{2\pi}{N} kn})^{\ast}\\
+&= \frac{1}{N} (\text{FFT}((X[k])^{\ast}))^{\ast}
+\end{aligned}
+$$</p><p>如果用 Python 可以表示为：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>conj</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>fft</span><span class=o>.</span><span class=n>fft</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>conj</span><span class=p>(</span><span class=n>X</span><span class=p>)))</span> <span class=o>/</span> <span class=n>N</span>
+</span></span></code></pre></div><p>这里注意的一点是，如果输入序列是实数，那么 IFFT 返回只有实部，所以虚数可以不取。</p><hr><h3 id=37-fft-python-code>3.7 FFT Python Code<a hidden class=anchor aria-hidden=true href=#37-fft-python-code>#</a></h3><p>假定输入序列是 $N = 2^{m}$。</p><p>有如下代码：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>fft</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>N</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>N</span> <span class=o>&lt;=</span> <span class=mi>1</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>x</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>X_even</span> <span class=o>=</span> <span class=n>fft</span><span class=p>(</span><span class=n>x</span><span class=p>[</span><span class=mi>0</span><span class=p>::</span><span class=mi>2</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>    <span class=n>X_odd</span> <span class=o>=</span> <span class=n>fft</span><span class=p>(</span><span class=n>x</span><span class=p>[</span><span class=mi>1</span><span class=p>::</span><span class=mi>2</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>*</span> <span class=n>N</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>k</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>N</span><span class=o>//</span><span class=mi>2</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>t</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>exp</span><span class=p>(</span><span class=o>-</span><span class=mi>2</span><span class=n>j</span> <span class=o>*</span> <span class=n>np</span><span class=o>.</span><span class=n>pi</span> <span class=o>*</span> <span class=n>k</span> <span class=o>/</span> <span class=n>N</span><span class=p>)</span> <span class=o>*</span> <span class=n>X_odd</span><span class=p>[</span><span class=n>k</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>X</span><span class=p>[</span><span class=n>k</span><span class=p>]</span> <span class=o>=</span> <span class=n>X_even</span><span class=p>[</span><span class=n>k</span><span class=p>]</span> <span class=o>+</span> <span class=n>t</span>
+</span></span><span class=line><span class=cl>        <span class=n>X</span><span class=p>[</span><span class=n>k</span> <span class=o>+</span> <span class=n>N</span><span class=o>//</span><span class=mi>2</span><span class=p>]</span> <span class=o>=</span> <span class=n>X_even</span><span class=p>[</span><span class=n>k</span><span class=p>]</span> <span class=o>-</span> <span class=n>t</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>X</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>ifft</span><span class=p>(</span><span class=n>X</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>N</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>X</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>x_time</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>conj</span><span class=p>(</span><span class=n>fft</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>conj</span><span class=p>(</span><span class=n>X</span><span class=p>)))</span> <span class=o>/</span> <span class=n>N</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>x_time</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>x</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=n>t</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;FFT:&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>k</span><span class=p>,</span> <span class=n>v</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>X</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;X[</span><span class=si>{</span><span class=n>k</span><span class=si>:</span><span class=s2>2d</span><span class=si>}</span><span class=s2>] = </span><span class=si>{</span><span class=n>v</span><span class=o>.</span><span class=n>real</span><span class=si>:</span><span class=s2>8.2f</span><span class=si>}</span><span class=s2> + </span><span class=si>{</span><span class=n>v</span><span class=o>.</span><span class=n>imag</span><span class=si>:</span><span class=s2>8.2f</span><span class=si>}</span><span class=s2>j&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># IFFT</span>
+</span></span><span class=line><span class=cl>    <span class=n>x_rec</span> <span class=o>=</span> <span class=n>ifft</span><span class=p>(</span><span class=n>X</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=se>\n</span><span class=s2>IFFT:&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>n</span><span class=p>,</span> <span class=n>v</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>x_rec</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;x[</span><span class=si>{</span><span class=n>n</span><span class=si>:</span><span class=s2>2d</span><span class=si>}</span><span class=s2>] = </span><span class=si>{</span><span class=n>v</span><span class=o>.</span><span class=n>real</span><span class=si>:</span><span class=s2>8.2f</span><span class=si>}</span><span class=s2> + </span><span class=si>{</span><span class=n>v</span><span class=o>.</span><span class=n>imag</span><span class=si>:</span><span class=s2>8.2f</span><span class=si>}</span><span class=s2>j&#34;</span><span class=p>)</span>   <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>7</span><span class=p>,</span> <span class=mi>8</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;x[n]: &#34;</span><span class=p>,</span> <span class=n>x</span><span class=p>,</span> <span class=s2>&#34;</span><span class=se>\n</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># FFT</span>
+</span></span><span class=line><span class=cl>    <span class=n>X</span> <span class=o>=</span> <span class=n>ff</span>
+</span></span></code></pre></div><p>结果为：</p><pre tabindex=0><code>x[n]:  [1, 2, 3, 4, 5, 6, 7, 8] 
+
+FFT:
+X[ 0] =    36.00 +     0.00j
+X[ 1] =    -4.00 +     9.66j
+X[ 2] =    -4.00 +     4.00j
+X[ 3] =    -4.00 +     1.66j
+X[ 4] =    -4.00 +     0.00j
+X[ 5] =    -4.00 +    -1.66j
+X[ 6] =    -4.00 +    -4.00j
+X[ 7] =    -4.00 +    -9.66j
+
+IFFT:
+x[ 0] =     1.00 +    -0.00j
+x[ 1] =     2.00 +     0.00j
+x[ 2] =     3.00 +    -0.00j
+x[ 3] =     4.00 +     0.00j
+x[ 4] =     5.00 +    -0.00j
+x[ 5] =     6.00 +    -0.00j
+x[ 6] =     7.00 +     0.00j
+x[ 7] =     8.00 +    -0.00j
+</code></pre><hr><h3 id=38-2d-fft-ifft>3.8 2D FFT IFFT<a hidden class=anchor aria-hidden=true href=#38-2d-fft-ifft>#</a></h3><p>2D DFT 的定义</p><p>设输入矩阵 $f[m,n]$ 大小为 $M \times N$，2D DFT 定义为：</p><p>$$
+F[k,l] = \sum_{m=0}^{M-1}\sum_{n=0}^{N-1} f[m,n] , e^{-j 2\pi \left(\frac{k m}{M} + \frac{l n}{N}\right)}
+$$</p><p>注意指数是<strong>行方向 + 列方向</strong>的和。</p><p>因为指数是可分解的：</p><p>$$
+e^{-j 2\pi (\frac{k m}{M} + \frac{l n}{N})} = e^{-j 2\pi \frac{k m}{M}} \cdot e^{-j 2\pi \frac{l n}{N}}
+$$</p><p>代入原式：</p><p>$$
+F[k,l] = \sum_{m=0}^{M-1}\sum_{n=0}^{N-1} f[m,n] , e^{-j 2\pi \frac{k m}{M}} , e^{-j 2\pi \frac{l n}{N}}
+$$</p><p>这就意味着<strong>可以先对 n 做求和，再对 m 做求和</strong>：</p><p>$$
+F[k,l] = \sum_{m=0}^{M-1} \left[ e^{-j 2\pi \frac{k m}{M}} \left( \sum_{n=0}^{N-1} f[m,n] , e^{-j 2\pi \frac{l n}{N}} \right) \right]
+$$</p><p>这也就是说，可以拆分为先对行做 FFT，得到结果后再在列方向做一次 FFT。（也可以先列后行反过来，不影响结果）</p><p>算法时间复杂度上，DFT 的时间复杂度为：</p><p>$$
+\mathcal{O}(M^2 N^2)
+$$</p><p>拆分为 2 个 1D FFT 后为：</p><p>$$
+\mathcal{O}(M N \log N + N M \log M) = \mathcal{O}(M N (\log M + \log N))
+$$</p><p>这里给出 2D 的 FFT 代码：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-Python data-lang=Python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>fft1d</span> <span class=kn>import</span> <span class=n>fft</span><span class=p>,</span> <span class=n>ifft</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>fft2d</span><span class=p>(</span><span class=n>matrix</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>temp</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=n>fft</span><span class=p>(</span><span class=n>row</span><span class=p>)</span> <span class=k>for</span> <span class=n>row</span> <span class=ow>in</span> <span class=n>matrix</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>    <span class=n>temp</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=n>fft</span><span class=p>(</span><span class=n>col</span><span class=p>)</span> <span class=k>for</span> <span class=n>col</span> <span class=ow>in</span> <span class=n>temp</span><span class=o>.</span><span class=n>T</span><span class=p>])</span><span class=o>.</span><span class=n>T</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>temp</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>ifft2d</span><span class=p>(</span><span class=n>matrix</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>temp</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=n>ifft</span><span class=p>(</span><span class=n>row</span><span class=p>)</span> <span class=k>for</span> <span class=n>row</span> <span class=ow>in</span> <span class=n>matrix</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>    <span class=n>temp</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=n>ifft</span><span class=p>(</span><span class=n>col</span><span class=p>)</span> <span class=k>for</span> <span class=n>col</span> <span class=ow>in</span> <span class=n>temp</span><span class=o>.</span><span class=n>T</span><span class=p>])</span><span class=o>.</span><span class=n>T</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>temp</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>x</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span>
+</span></span><span class=line><span class=cl>        <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>        <span class=p>[</span><span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>7</span><span class=p>,</span> <span class=mi>8</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>        <span class=p>[</span><span class=mi>9</span><span class=p>,</span><span class=mi>10</span><span class=p>,</span><span class=mi>11</span><span class=p>,</span><span class=mi>12</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>        <span class=p>[</span><span class=mi>13</span><span class=p>,</span><span class=mi>14</span><span class=p>,</span><span class=mi>15</span><span class=p>,</span><span class=mi>16</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=p>],</span> <span class=n>dtype</span><span class=o>=</span><span class=nb>float</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;x[i,j]:&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 2D FFT</span>
+</span></span><span class=line><span class=cl>    <span class=n>X</span> <span class=o>=</span> <span class=n>fft2d</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=se>\n</span><span class=s2>2D FFT X:&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>round</span><span class=p>(</span><span class=n>X</span><span class=p>,</span> <span class=mi>2</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 2D IFFT</span>
+</span></span><span class=line><span class=cl>    <span class=n>x_rec</span> <span class=o>=</span> <span class=n>ifft2d</span><span class=p>(</span><span class=n>X</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=se>\n</span><span class=s2>2D IFFT x_rec:&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>round</span><span class=p>(</span><span class=n>x_rec</span><span class=o>.</span><span class=n>real</span><span class=p>,</span> <span class=mi>2</span><span class=p>))</span>
+</span></span></code></pre></div><p>结果如下：</p><pre tabindex=0><code>x[i,j]:
+[[ 1.  2.  3.  4.]
+ [ 5.  6.  7.  8.]
+ [ 9. 10. 11. 12.]
+ [13. 14. 15. 16.]]
+
+2D FFT X:
+[[136. +0.j  -8. +8.j  -8. +0.j  -8. -8.j]
+ [-32.+32.j   0. +0.j   0. +0.j   0. +0.j]
+ [-32. +0.j   0. +0.j   0. +0.j   0. +0.j]
+ [-32.-32.j   0. +0.j   0. +0.j   0. +0.j]]
+
+2D IFFT x_rec:
+[[ 1.  2.  3.  4.]
+ [ 5.  6.  7.  8.]
+ [ 9. 10. 11. 12.]
+ [13. 14. 15. 16.]]
+</code></pre><hr><h2 id=4-参考致谢>4. 参考致谢<a hidden class=anchor aria-hidden=true href=#4-参考致谢>#</a></h2><p>花了几天时间终于写完了，感觉不仅 FFT 知识得到了进化，连带写公式都彻底熟悉了。</p><p>特别感谢下列视频作者：</p><ul><li>DR_CAN<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>的傅里叶变换推导过程。</li><li>nksunmoon<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>的 FFT 过程讲解。</li></ul><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>DR_CAN , 2018, 纯干货数学推导_傅里叶级数与傅里叶变换, <a href=https://www.bilibili.com/video/BV1Et411R78v>https://www.bilibili.com/video/BV1Et411R78v</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>nksunmoon, 2022, 快速傅里叶变换原理, <a href=https://www.bilibili.com/video/BV1Ng411v7Dk>https://www.bilibili.com/video/BV1Ng411v7Dk</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://cronrpc.github.io/zh/tags/math/>Math</a></li><li><a href=https://cronrpc.github.io/zh/tags/fourier-transform/>Fourier Transform</a></li></ul><nav class=paginav><a class=next href=https://cronrpc.github.io/zh/posts/stencil-buffer-and-stencil-test/><span class=title>下一页 »</span><br><span>Unity Stencil Buffer & Stencil Test</span></a></nav><ul class=share-buttons><li><a target=_blank rel="noopener noreferrer" aria-label="share Fourier Transform on x" href="https://x.com/intent/tweet/?text=Fourier%20Transform&amp;url=https%3a%2f%2fcronrpc.github.io%2fzh%2fposts%2ffourier-transform%2f&amp;hashtags=Math%2cFourierTransform"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446C483.971.0 512 28.03 512 62.554zM269.951 190.75 182.567 75.216H56L207.216 272.95 63.9 436.783h61.366L235.9 310.383l96.667 126.4H456L298.367 228.367l134-153.151H371.033zM127.633 110h36.468l219.38 290.065H349.5z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Fourier Transform on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fcronrpc.github.io%2fzh%2fposts%2ffourier-transform%2f&amp;title=Fourier%20Transform&amp;summary=Fourier%20Transform&amp;source=https%3a%2f%2fcronrpc.github.io%2fzh%2fposts%2ffourier-transform%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Fourier Transform on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fcronrpc.github.io%2fzh%2fposts%2ffourier-transform%2f&title=Fourier%20Transform"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Fourier Transform on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fcronrpc.github.io%2fzh%2fposts%2ffourier-transform%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Fourier Transform on whatsapp" href="https://api.whatsapp.com/send?text=Fourier%20Transform%20-%20https%3a%2f%2fcronrpc.github.io%2fzh%2fposts%2ffourier-transform%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Fourier Transform on telegram" href="https://telegram.me/share/url?text=Fourier%20Transform&amp;url=https%3a%2f%2fcronrpc.github.io%2fzh%2fposts%2ffourier-transform%2f"><svg viewBox="2 2 28 28" height="30" width="30" fill="currentcolor"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share Fourier Transform on ycombinator" href="https://news.ycombinator.com/submitlink?t=Fourier%20Transform&u=https%3a%2f%2fcronrpc.github.io%2fzh%2fposts%2ffourier-transform%2f"><svg width="30" height="30" viewBox="0 0 512 512" fill="currentcolor" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"><path d="M449.446.0C483.971.0 512 28.03 512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446zM183.8767 87.9921h-62.034L230.6673 292.4508V424.0079h50.6655V292.4508L390.1575 87.9921H328.1233L256 238.2489z"/></svg></a></li></ul></footer></article></main><footer class=footer><span>&copy; 2025 <a href=https://cronrpc.github.io/zh/>cronrpc 中文</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="复制";function s(){t.innerHTML="已复制！",setTimeout(()=>{t.innerHTML="复制"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

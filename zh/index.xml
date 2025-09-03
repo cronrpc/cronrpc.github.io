@@ -11,8 +11,17 @@
     </image>
     <generator>Hugo -- 0.147.2</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 29 Aug 2025 23:01:50 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 31 Aug 2025 12:18:21 +0800</lastBuildDate>
     <atom:link href="https://cronrpc.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fourier Transform</title>
+      <link>https://cronrpc.github.io/zh/posts/fourier-transform/</link>
+      <pubDate>Sun, 31 Aug 2025 12:18:21 +0800</pubDate>
+      <guid>https://cronrpc.github.io/zh/posts/fourier-transform/</guid>
+      <description>&lt;h2 id=&#34;1-傅里叶变换&#34;&gt;1. 傅里叶变换&lt;/h2&gt;
+&lt;p&gt;傅里叶变换起源于18世纪研究振动与热传导的问题。欧拉、达朗贝尔和伯努利提出用正弦波描述振动，奠定了思想基础。&lt;/p&gt;
+&lt;p&gt;19世纪初，法国数学家傅里叶在研究热传导时提出任何函数都可展开为正弦与余弦级数，这就是傅里叶级数，并逐渐发展为傅里叶变换。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Unity Stencil Buffer &amp; Stencil Test</title>
       <link>https://cronrpc.github.io/zh/posts/stencil-buffer-and-stencil-test/</link>
