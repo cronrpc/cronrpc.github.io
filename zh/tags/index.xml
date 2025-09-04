@@ -11,19 +11,26 @@
     </image>
     <generator>Hugo -- 0.147.2</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 31 Aug 2025 12:18:21 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Sep 2025 19:27:16 +0800</lastBuildDate>
     <atom:link href="https://cronrpc.github.io/zh/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fourier Transform</title>
       <link>https://cronrpc.github.io/zh/tags/fourier-transform/</link>
-      <pubDate>Sun, 31 Aug 2025 12:18:21 +0800</pubDate>
+      <pubDate>Thu, 04 Sep 2025 19:27:16 +0800</pubDate>
       <guid>https://cronrpc.github.io/zh/tags/fourier-transform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Laplace Transform</title>
+      <link>https://cronrpc.github.io/zh/tags/laplace-transform/</link>
+      <pubDate>Thu, 04 Sep 2025 19:27:16 +0800</pubDate>
+      <guid>https://cronrpc.github.io/zh/tags/laplace-transform/</guid>
       <description></description>
     </item>
     <item>
       <title>Math</title>
       <link>https://cronrpc.github.io/zh/tags/math/</link>
-      <pubDate>Sun, 31 Aug 2025 12:18:21 +0800</pubDate>
+      <pubDate>Thu, 04 Sep 2025 19:27:16 +0800</pubDate>
       <guid>https://cronrpc.github.io/zh/tags/math/</guid>
       <description></description>
     </item>
@@ -60,13 +67,6 @@
       <link>https://cronrpc.github.io/zh/tags/perlin-noise/</link>
       <pubDate>Wed, 06 Aug 2025 21:00:07 +0800</pubDate>
       <guid>https://cronrpc.github.io/zh/tags/perlin-noise/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Fourier</title>
-      <link>https://cronrpc.github.io/zh/tags/fourier/</link>
-      <pubDate>Fri, 01 Aug 2025 20:49:34 +0800</pubDate>
-      <guid>https://cronrpc.github.io/zh/tags/fourier/</guid>
       <description></description>
     </item>
   </channel>

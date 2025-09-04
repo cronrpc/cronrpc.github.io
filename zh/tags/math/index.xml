@@ -11,8 +11,27 @@
     </image>
     <generator>Hugo -- 0.147.2</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 31 Aug 2025 12:18:21 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Sep 2025 19:27:16 +0800</lastBuildDate>
     <atom:link href="https://cronrpc.github.io/zh/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Laplace Transform</title>
+      <link>https://cronrpc.github.io/zh/posts/laplace-transform/</link>
+      <pubDate>Thu, 04 Sep 2025 19:27:16 +0800</pubDate>
+      <guid>https://cronrpc.github.io/zh/posts/laplace-transform/</guid>
+      <description>&lt;h2 id=&#34;1-从傅里叶变换到拉普拉斯变换&#34;&gt;1. 从傅里叶变换到拉普拉斯变换&lt;/h2&gt;
+&lt;h3 id=&#34;11-傅里叶变换的局限&#34;&gt;1.1 傅里叶变换的局限&lt;/h3&gt;
+&lt;p&gt;傅里叶变换的公式：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+F(\omega) &amp;amp;= \int_{-\infin}^{\infin}{f(t) e^{-j\omega t} dt}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;其中的指数部分可以写为：&lt;/p&gt;
+&lt;p&gt;$$
+e^{-jwt}=\cos{wt}-j\sin{wt}
+$$&lt;/p&gt;
+&lt;p&gt;但是对于函数比如 $f(t) = t^2$ 会发现根本积分不了，因为在无穷范围内积分的结果是无穷。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Fourier Transform</title>
       <link>https://cronrpc.github.io/zh/posts/fourier-transform/</link>

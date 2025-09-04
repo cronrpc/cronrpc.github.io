@@ -11,8 +11,27 @@
     </image>
     <generator>Hugo -- 0.147.2</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 31 Aug 2025 12:18:21 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Sep 2025 19:27:16 +0800</lastBuildDate>
     <atom:link href="https://cronrpc.github.io/zh/tags/fourier-transform/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Laplace Transform</title>
+      <link>https://cronrpc.github.io/zh/posts/laplace-transform/</link>
+      <pubDate>Thu, 04 Sep 2025 19:27:16 +0800</pubDate>
+      <guid>https://cronrpc.github.io/zh/posts/laplace-transform/</guid>
+      <description>&lt;h2 id=&#34;1-从傅里叶变换到拉普拉斯变换&#34;&gt;1. 从傅里叶变换到拉普拉斯变换&lt;/h2&gt;
+&lt;h3 id=&#34;11-傅里叶变换的局限&#34;&gt;1.1 傅里叶变换的局限&lt;/h3&gt;
+&lt;p&gt;傅里叶变换的公式：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+F(\omega) &amp;amp;= \int_{-\infin}^{\infin}{f(t) e^{-j\omega t} dt}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;其中的指数部分可以写为：&lt;/p&gt;
+&lt;p&gt;$$
+e^{-jwt}=\cos{wt}-j\sin{wt}
+$$&lt;/p&gt;
+&lt;p&gt;但是对于函数比如 $f(t) = t^2$ 会发现根本积分不了，因为在无穷范围内积分的结果是无穷。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Fourier Transform</title>
       <link>https://cronrpc.github.io/zh/posts/fourier-transform/</link>
@@ -21,6 +40,24 @@
       <description>&lt;h2 id=&#34;1-傅里叶变换&#34;&gt;1. 傅里叶变换&lt;/h2&gt;
 &lt;p&gt;傅里叶变换起源于18世纪研究振动与热传导的问题。欧拉、达朗贝尔和伯努利提出用正弦波描述振动，奠定了思想基础。&lt;/p&gt;
 &lt;p&gt;19世纪初，法国数学家傅里叶在研究热传导时提出任何函数都可展开为正弦与余弦级数，这就是傅里叶级数，并逐渐发展为傅里叶变换。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2D Fourier Transform</title>
+      <link>https://cronrpc.github.io/zh/posts/2d-fourier-transform/</link>
+      <pubDate>Fri, 01 Aug 2025 20:49:34 +0800</pubDate>
+      <guid>https://cronrpc.github.io/zh/posts/2d-fourier-transform/</guid>
+      <description>&lt;p&gt;本文仅聚焦于如下几个问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从三角级数展开，过渡到欧拉形式的傅里叶变换&lt;/li&gt;
+&lt;li&gt;什么是离散傅里叶变换&lt;/li&gt;
+&lt;li&gt;什么是2D傅里叶变换&lt;/li&gt;
+&lt;li&gt;从2D傅里叶变换，解释到2D离散傅里叶变换&lt;/li&gt;
+&lt;li&gt;如何对图像进行2D傅里叶变换&lt;/li&gt;
+&lt;li&gt;2D傅里叶变换的周期性问题&lt;/li&gt;
+&lt;li&gt;从2D傅里叶变换的周期性理解傅里叶2D频谱图的中心化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;傅里叶级数&#34;&gt;傅里叶级数&lt;/h2&gt;
+&lt;p&gt;傅里叶级数是一种数学工具，它表示一个周期函数为一组正弦和余弦函数的无穷和。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
