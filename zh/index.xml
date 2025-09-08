@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- 0.147.2</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 04 Sep 2025 19:27:16 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Sep 2025 23:16:32 +0800</lastBuildDate>
     <atom:link href="https://cronrpc.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unity Compute Shader</title>
+      <link>https://cronrpc.github.io/zh/posts/unity-compute-shader/</link>
+      <pubDate>Sun, 07 Sep 2025 23:16:32 +0800</pubDate>
+      <guid>https://cronrpc.github.io/zh/posts/unity-compute-shader/</guid>
+      <description>&lt;h2 id=&#34;1-compute-shader&#34;&gt;1. Compute Shader&lt;/h2&gt;
+&lt;p&gt;通常我们的游戏逻辑是跑在CPU上的，但是有一些非常适合并行计算的操作，比如各种粒子运动、流体/布料模拟、大量 AI 行为等，更适合跑在 GPU 上。这是因为 GPU 的核心数量非常多，天然更适合处理能够进行并行的计算。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Laplace Transform</title>
       <link>https://cronrpc.github.io/zh/posts/laplace-transform/</link>
