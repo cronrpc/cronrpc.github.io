@@ -11,8 +11,17 @@
     </image>
     <generator>Hugo -- 0.147.2</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 07 Sep 2025 23:16:32 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Sep 2025 13:04:43 +0800</lastBuildDate>
     <atom:link href="https://cronrpc.github.io/zh/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unity Input System</title>
+      <link>https://cronrpc.github.io/zh/posts/unity-input-system/</link>
+      <pubDate>Thu, 11 Sep 2025 13:04:43 +0800</pubDate>
+      <guid>https://cronrpc.github.io/zh/posts/unity-input-system/</guid>
+      <description>&lt;p&gt;一个系统的输入有哪些？&lt;/p&gt;
+&lt;p&gt;如果是电脑上，有鼠标、键盘、手柄；主机上主要是手柄；移动设备上则是屏幕、加速度计、陀螺仪。&lt;/p&gt;
+&lt;p&gt;除此之外，还有一些比较特殊的反馈，例如PC手柄的基础振动，PS平台的手柄还支持力反馈和吹气，移动端也可以触发手机的振动等。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Unity Compute Shader</title>
       <link>https://cronrpc.github.io/zh/posts/unity-compute-shader/</link>
