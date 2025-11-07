@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Unity AssetBundles on cronrpc 中文</title>
+    <link>https://cronrpc.github.io/zh/tags/unity-assetbundles/</link>
+    <description>Recent content in Unity AssetBundles on cronrpc 中文</description>
+    <image>
+      <title>cronrpc 中文</title>
+      <url>https://cronrpc.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://cronrpc.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.2</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 04 Nov 2025 21:13:49 +0800</lastBuildDate>
+    <atom:link href="https://cronrpc.github.io/zh/tags/unity-assetbundles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unity AssetBundles and Addressables</title>
+      <link>https://cronrpc.github.io/zh/posts/unity-resources-assetbundles-and-addressables/</link>
+      <pubDate>Tue, 04 Nov 2025 21:13:49 +0800</pubDate>
+      <guid>https://cronrpc.github.io/zh/posts/unity-resources-assetbundles-and-addressables/</guid>
+      <description>&lt;p&gt;在 Unity 开发中，如何高效管理和加载游戏资源，是决定项目性能和可维护性的重要因素。&lt;/p&gt;
+&lt;p&gt;Unity 这些年来先后推出了三种主要的资源加载方式：&lt;/p&gt;
+&lt;p&gt;Resources → AssetBundles → Addressables。&lt;/p&gt;
+&lt;p&gt;每一代系统都在解决上一代的局限性。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
