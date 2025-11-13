@@ -11,8 +11,18 @@
     </image>
     <generator>Hugo -- 0.147.2</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 04 Nov 2025 21:13:49 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 12 Nov 2025 15:01:44 +0800</lastBuildDate>
     <atom:link href="https://cronrpc.github.io/zh/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unity Editor Extensions</title>
+      <link>https://cronrpc.github.io/zh/posts/unity-editor-extensions/</link>
+      <pubDate>Wed, 12 Nov 2025 15:01:44 +0800</pubDate>
+      <guid>https://cronrpc.github.io/zh/posts/unity-editor-extensions/</guid>
+      <description>&lt;p&gt;首先明确一点，编辑器开发的知识还是很多的，正确的学习方式还是从实践入手，用查工具一样的方式去学习使用。&lt;/p&gt;
+&lt;h2 id=&#34;1-unity编辑器开发前置知识&#34;&gt;1. Unity编辑器开发前置知识&lt;/h2&gt;
+&lt;h3 id=&#34;11-什么是注解attribute&#34;&gt;1.1 什么是注解（Attribute）？&lt;/h3&gt;
+&lt;p&gt;注解（Attribute） 是 C# 提供的一种元数据（Metadata）机制，用于在类、方法、字段、属性等上附加额外的信息。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Unity AssetBundles and Addressables</title>
       <link>https://cronrpc.github.io/zh/posts/unity-resources-assetbundles-and-addressables/</link>
